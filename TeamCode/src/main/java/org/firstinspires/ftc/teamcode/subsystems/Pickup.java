@@ -19,7 +19,12 @@ public class Pickup {
         pickupMotor.setZeroPowerBehavior(RobotMap.ZERO_POWER_BEHAVIOR_PICKUP_MOTOR);
     }
 
-    public void setRawSpeed(double pickup_speed) {
-        pickupMotor.setPower(pickup_speed);
+    /**
+     * Sets the pickup motor
+     * 1 = in/up, -1 = out/down, 0 = stop
+     * @param pickupSpeed The speed to drive the pickup
+     */
+    public void setRawSpeed(double pickupSpeed) {
+        pickupMotor.setPower(pickupSpeed);
     }
 }

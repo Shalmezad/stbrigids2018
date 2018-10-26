@@ -4,10 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.Range;
 import org.firstinspires.ftc.teamcode.RobotMap;
-import org.firstinspires.ftc.teamcode.subsystems.DriveTrain;
-import org.firstinspires.ftc.teamcode.subsystems.Extension;
-import org.firstinspires.ftc.teamcode.subsystems.Pickup;
-import org.firstinspires.ftc.teamcode.subsystems.Shoulder;
+import org.firstinspires.ftc.teamcode.subsystems.*;
 
 public abstract class BaseTeleOp extends OpMode {
 
@@ -15,6 +12,7 @@ public abstract class BaseTeleOp extends OpMode {
     protected Shoulder shoulder;
     protected Extension extension;
     protected Pickup pickup;
+    protected RobotLift robotLift;
 
     @Override
     public void init() {
@@ -30,11 +28,13 @@ public abstract class BaseTeleOp extends OpMode {
         if (!RobotMap.DISABLE_PICKUP) {
             pickup = new Pickup(hardwareMap);
         }
+        if (!RobotMap.DISABLE_LIFT) {
+            robotLift = new RobotLift(hardwareMap);
+        }
     }
 
     @Override
     public void loop() {
-        // TODO: Add robot lift
         // TODO: Don't handle joystick drive if we're shimmying
         if (!RobotMap.DISABLE_DRIVE_TRAIN) {
             handleJoystickDrive();
@@ -47,6 +47,9 @@ public abstract class BaseTeleOp extends OpMode {
         }
         if (!RobotMap.DISABLE_PICKUP) {
             handlePickup();
+        }
+        if (!RobotMap.DISABLE_LIFT) {
+            handleLift();
         }
     }
 
@@ -85,5 +88,17 @@ public abstract class BaseTeleOp extends OpMode {
         }
 
         pickup.setRawSpeed(pickupSpeed);
+    }
+
+    private void handleLift() {
+        double liftSpeed = 0;
+
+        if (gamepad2.dpad_up) {
+            liftSpeed = -RobotMap.MAX_LIFT_SPEED;
+        } else if (gamepad2.dpad_down) {
+            liftSpeed = RobotMap.MAX_LIFT_SPEED;
+        }
+
+        robotLift.setRawSpeed(liftSpeed);
     }
 }

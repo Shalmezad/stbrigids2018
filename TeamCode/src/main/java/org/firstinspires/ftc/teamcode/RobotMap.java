@@ -17,6 +17,7 @@ public class RobotMap {
     public static final boolean DISABLE_SHOULDER = false;
     public static final boolean DISABLE_EXTENSION = false;
     public static final boolean DISABLE_PICKUP = false;
+    public static final boolean DISABLE_LIFT = false;
 
     //endregion
 
@@ -31,6 +32,8 @@ public class RobotMap {
     public static final String HW_NAME_EXTENSION_MOTOR = "extension";
 
     public static final String HW_NAME_PICKUP_MOTOR = "pickup";
+
+    public static final String HW_NAME_LIFT_MOTOR = "lift";
 
     //endregion
 
@@ -47,8 +50,9 @@ public class RobotMap {
 
     public static final boolean INVERT_EXTENSION_MOTOR = true;
 
-    public static final boolean INVERT_PICKUP_MOTOR = true;
+    public static final boolean INVERT_PICKUP_MOTOR = false;
 
+    public static final boolean INVERT_LIFT_MOTOR = false;
     //endregion
 
     //region MOTOR ZERO POWER MODES
@@ -64,6 +68,8 @@ public class RobotMap {
 
     public static final DcMotor.ZeroPowerBehavior ZERO_POWER_BEHAVIOR_PICKUP_MOTOR = DcMotor.ZeroPowerBehavior.FLOAT;
 
+    public static final DcMotor.ZeroPowerBehavior ZERO_POWER_BEHAVIOR_LIFT_MOTOR = DcMotor.ZeroPowerBehavior.FLOAT;
+
     //endregion
 
 
@@ -76,6 +82,8 @@ public class RobotMap {
     public static final double MAX_EXTENSION_SPEED = 0.5;
 
     public static final double MAX_PICKUP_SPEED = 0.5;
+
+    public static final double MAX_LIFT_SPEED = 0.5;
 
     //endregion
 }

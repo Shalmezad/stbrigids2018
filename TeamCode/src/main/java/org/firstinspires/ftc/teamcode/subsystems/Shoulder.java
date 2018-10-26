@@ -5,6 +5,9 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import org.firstinspires.ftc.teamcode.RobotMap;
 
+/**
+ * The shoulder portion of the robot, and it's motors (the ones that drive the chains)
+ */
 public class Shoulder {
 
     private DcMotor leftShoulderMotor = null;
@@ -27,6 +30,11 @@ public class Shoulder {
 
     }
 
+    /**
+     * Sets the shoulder motors
+     * 1 = up, -1 = down, 0 = stop
+     * @param speed The speed to drive the shoulder
+     */
     public void setRawSpeed(double speed) {
         // Both motors should go at the same rate
         leftShoulderMotor.setPower(speed);

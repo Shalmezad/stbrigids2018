@@ -25,6 +25,12 @@ public class DriveTrain {
         rightDrive.setZeroPowerBehavior(RobotMap.ZERO_POWER_BEHAVIOR_DRIVE_TRAIN_MOTORS);
     }
 
+    /**
+     * Sets the drive train motors
+     * 1 = forward, -1 = backwards, 0 = stop
+     * @param leftSpeed The left speed of the drive train
+     * @param rightSpeed The right speed of the drive train
+     */
     public void setRawSpeed(double leftSpeed, double rightSpeed) {
         leftDrive.setPower(leftSpeed);
         rightDrive.setPower(rightSpeed);

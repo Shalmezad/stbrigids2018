@@ -5,6 +5,9 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import org.firstinspires.ftc.teamcode.RobotMap;
 
+/**
+ * The linear slide portion of the robot, and it's motor (the one that pulls the strings)
+ */
 public class Extension {
 
     private DcMotor extensionMotor = null;
@@ -19,7 +22,12 @@ public class Extension {
         extensionMotor.setZeroPowerBehavior(RobotMap.ZERO_POWER_BEHAVIOR_EXTENSION_MOTOR);
     }
 
-    public void setRawSpeed(double extension_speed) {
-        extensionMotor.setPower(extension_speed);
+    /**
+     * Sets the extension motor
+     * 1 = forward, -1 = backwards, 0 = stop
+     * @param extensionSpeed The speed to drive the extension
+     */
+    public void setRawSpeed(double extensionSpeed) {
+        extensionMotor.setPower(extensionSpeed);
     }
 }
