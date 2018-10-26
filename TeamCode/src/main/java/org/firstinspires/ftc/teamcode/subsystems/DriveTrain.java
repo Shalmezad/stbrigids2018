@@ -10,19 +10,22 @@ public class DriveTrain {
     private DcMotor leftDrive = null;
     private DcMotor rightDrive = null;
 
-    public DriveTrain(HardwareMap hardwareMap){
-        leftDrive  = hardwareMap.get(DcMotor.class, RobotMap.HW_NAME_LEFT_DRIVE_TRAIN_MOTOR);
+    public DriveTrain(HardwareMap hardwareMap) {
+        leftDrive = hardwareMap.get(DcMotor.class, RobotMap.HW_NAME_LEFT_DRIVE_TRAIN_MOTOR);
         rightDrive = hardwareMap.get(DcMotor.class, RobotMap.HW_NAME_RIGHT_DRIVE_TRAIN_MOTOR);
 
-        if(RobotMap.INVERT_LEFT_DRIVE_TRAIN_MOTOR){
+        if (RobotMap.INVERT_LEFT_DRIVE_TRAIN_MOTOR) {
             leftDrive.setDirection(DcMotorSimple.Direction.REVERSE);
         }
-        if(RobotMap.INVERT_RIGHT_DRIVE_TRAIN_MOTOR){
+        if (RobotMap.INVERT_RIGHT_DRIVE_TRAIN_MOTOR) {
             rightDrive.setDirection(DcMotorSimple.Direction.REVERSE);
         }
+
+        leftDrive.setZeroPowerBehavior(RobotMap.ZERO_POWER_BEHAVIOR_DRIVE_TRAIN_MOTORS);
+        rightDrive.setZeroPowerBehavior(RobotMap.ZERO_POWER_BEHAVIOR_DRIVE_TRAIN_MOTORS);
     }
 
-    public void setRawSpeed(double leftSpeed, double rightSpeed){
+    public void setRawSpeed(double leftSpeed, double rightSpeed) {
         leftDrive.setPower(leftSpeed);
         rightDrive.setPower(rightSpeed);
     }
