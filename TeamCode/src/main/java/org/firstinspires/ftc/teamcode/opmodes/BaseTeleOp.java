@@ -5,12 +5,14 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.Range;
 import org.firstinspires.ftc.teamcode.RobotMap;
 import org.firstinspires.ftc.teamcode.subsystems.DriveTrain;
+import org.firstinspires.ftc.teamcode.subsystems.Extension;
 import org.firstinspires.ftc.teamcode.subsystems.Shoulder;
 
 public abstract class BaseTeleOp extends OpMode {
 
     protected DriveTrain driveTrain;
     protected Shoulder shoulder;
+    protected Extension extension;
 
     @Override
     public void init() {
@@ -20,12 +22,13 @@ public abstract class BaseTeleOp extends OpMode {
         if (!RobotMap.DISABLE_SHOULDER) {
             shoulder = new Shoulder(hardwareMap);
         }
+        if (!RobotMap.DISABLE_EXTENSION) {
+            extension = new Extension(hardwareMap);
+        }
     }
 
     @Override
     public void loop() {
-        // TODO: Add shoulder
-        // TODO: Add extension
         // TODO: Add pickup
         // TODO: Add robot lift
         // TODO: Don't handle joystick drive if we're shimmying
@@ -34,6 +37,9 @@ public abstract class BaseTeleOp extends OpMode {
         }
         if (!RobotMap.DISABLE_SHOULDER) {
             handleShoulder();
+        }
+        if (!RobotMap.DISABLE_EXTENSION) {
+            handleExtension();
         }
     }
 
@@ -49,5 +55,15 @@ public abstract class BaseTeleOp extends OpMode {
                 -RobotMap.MAX_SHOULDER_SPEED, RobotMap.MAX_SHOULDER_SPEED);
 
         shoulder.setRawSpeed(shoulderSpeed);
+    }
+
+    private void handleExtension() {
+        double extensionSpeed = -gamepad2.right_stick_y;
+
+        extensionSpeed = Range.scale(extensionSpeed,
+                -1.0, 1.0,
+                -RobotMap.MAX_EXTENSION_SPEED, RobotMap.MAX_EXTENSION_SPEED);
+
+        extension.setRawSpeed(extensionSpeed);
     }
 }

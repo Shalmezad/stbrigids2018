@@ -15,6 +15,7 @@ public class RobotMap {
     // ONLY use if you need to test an individual part, or remove a malfunctioning part
     public static final boolean DISABLE_DRIVE_TRAIN = false;
     public static final boolean DISABLE_SHOULDER = false;
+    public static final boolean DISABLE_EXTENSION = false;
 
     //endregion
 
@@ -25,6 +26,8 @@ public class RobotMap {
 
     public static final String HW_NAME_LEFT_SHOULDER_MOTOR = "l_shoulder";
     public static final String HW_NAME_RIGHT_SHOULDER_MOTOR = "r_shoulder";
+
+    public static final String HW_NAME_EXTENSION_MOTOR = "extension";
 
     //endregion
 
@@ -39,6 +42,8 @@ public class RobotMap {
     public static final boolean INVERT_LEFT_SHOULDER_MOTOR = false;
     public static final boolean INVERT_RIGHT_SHOULDER_MOTOR = true;
 
+    public static final boolean INVERT_EXTENSION_MOTOR = true;
+
     //endregion
 
     //region MOTOR ZERO POWER MODES
@@ -50,6 +55,8 @@ public class RobotMap {
 
     public static final DcMotor.ZeroPowerBehavior ZERO_POWER_BEHAVIOR_SHOULDER_MOTORS = DcMotor.ZeroPowerBehavior.BRAKE;
 
+    public static final DcMotor.ZeroPowerBehavior ZERO_POWER_BEHAVIOR_EXTENSION_MOTOR = DcMotor.ZeroPowerBehavior.BRAKE;
+
     //endregion
 
 
@@ -58,6 +65,8 @@ public class RobotMap {
     // This is to help prevent going too fast on sensitive parts
 
     public static final double MAX_SHOULDER_SPEED = 0.5;
+
+    public static final double MAX_EXTENSION_SPEED = 0.5;
 
     //endregion
 }
