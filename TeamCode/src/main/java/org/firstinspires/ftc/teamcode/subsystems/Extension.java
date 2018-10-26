@@ -30,4 +30,16 @@ public class Extension {
     public void setRawSpeed(double extensionSpeed) {
         extensionMotor.setPower(extensionSpeed);
     }
+
+    public void forward(){
+        setRawSpeed(RobotMap.MAX_EXTENSION_SPEED);
+    }
+
+    public void backwards(){
+        setRawSpeed(-RobotMap.MAX_EXTENSION_SPEED);
+    }
+
+    public void stop(){
+        setRawSpeed(0);
+    }
 }

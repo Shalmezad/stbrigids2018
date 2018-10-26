@@ -40,4 +40,16 @@ public class Shoulder {
         leftShoulderMotor.setPower(speed);
         rightShoulderMotor.setPower(speed);
     }
+
+    public void up(){
+        setRawSpeed(RobotMap.MAX_SHOULDER_SPEED);
+    }
+
+    public void down(){
+        setRawSpeed(-RobotMap.MAX_SHOULDER_SPEED);
+    }
+
+    public void stop(){
+        setRawSpeed(0);
+    }
 }

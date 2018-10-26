@@ -27,4 +27,16 @@ public class Pickup {
     public void setRawSpeed(double pickupSpeed) {
         pickupMotor.setPower(pickupSpeed);
     }
+
+    public void in(){
+        setRawSpeed(RobotMap.MAX_PICKUP_SPEED);
+    }
+
+    public void out(){
+        setRawSpeed(-RobotMap.MAX_PICKUP_SPEED);
+    }
+
+    public void stop(){
+        setRawSpeed(0);
+    }
 }

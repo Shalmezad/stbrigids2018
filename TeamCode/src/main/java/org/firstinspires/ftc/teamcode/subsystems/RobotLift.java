@@ -32,4 +32,16 @@ public class RobotLift {
     public void setRawSpeed(double speed) {
         liftMotor.setPower(speed);
     }
+
+    public void up(){
+        setRawSpeed(RobotMap.MAX_LIFT_SPEED);
+    }
+
+    public void down(){
+        setRawSpeed(-RobotMap.MAX_LIFT_SPEED);
+    }
+
+    public void stop(){
+        setRawSpeed(0);
+    }
 }
