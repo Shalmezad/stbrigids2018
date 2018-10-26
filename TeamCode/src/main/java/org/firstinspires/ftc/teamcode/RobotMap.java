@@ -16,6 +16,7 @@ public class RobotMap {
     public static final boolean DISABLE_DRIVE_TRAIN = false;
     public static final boolean DISABLE_SHOULDER = false;
     public static final boolean DISABLE_EXTENSION = false;
+    public static final boolean DISABLE_PICKUP = false;
 
     //endregion
 
@@ -28,6 +29,8 @@ public class RobotMap {
     public static final String HW_NAME_RIGHT_SHOULDER_MOTOR = "r_shoulder";
 
     public static final String HW_NAME_EXTENSION_MOTOR = "extension";
+
+    public static final String HW_NAME_PICKUP_MOTOR = "pickup";
 
     //endregion
 
@@ -44,18 +47,22 @@ public class RobotMap {
 
     public static final boolean INVERT_EXTENSION_MOTOR = true;
 
+    public static final boolean INVERT_PICKUP_MOTOR = true;
+
     //endregion
 
     //region MOTOR ZERO POWER MODES
     // This determines whether a motor coasts or brakes when it's set to 0
     // Brake means it immediately stops, and tries to hold the position (like slamming brakes on a car)
-    // Coast means it drifts slowly to a stop (like letting go of the gas on a car)
+    // Float means it drifts slowly to a stop (like letting go of the gas on a car)
 
     public static final DcMotor.ZeroPowerBehavior ZERO_POWER_BEHAVIOR_DRIVE_TRAIN_MOTORS = DcMotor.ZeroPowerBehavior.BRAKE;
 
     public static final DcMotor.ZeroPowerBehavior ZERO_POWER_BEHAVIOR_SHOULDER_MOTORS = DcMotor.ZeroPowerBehavior.BRAKE;
 
     public static final DcMotor.ZeroPowerBehavior ZERO_POWER_BEHAVIOR_EXTENSION_MOTOR = DcMotor.ZeroPowerBehavior.BRAKE;
+
+    public static final DcMotor.ZeroPowerBehavior ZERO_POWER_BEHAVIOR_PICKUP_MOTOR = DcMotor.ZeroPowerBehavior.FLOAT;
 
     //endregion
 
@@ -67,6 +74,8 @@ public class RobotMap {
     public static final double MAX_SHOULDER_SPEED = 0.5;
 
     public static final double MAX_EXTENSION_SPEED = 0.5;
+
+    public static final double MAX_PICKUP_SPEED = 0.5;
 
     //endregion
 }
