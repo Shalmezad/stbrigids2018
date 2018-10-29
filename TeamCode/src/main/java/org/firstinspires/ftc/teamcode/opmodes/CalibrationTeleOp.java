@@ -61,8 +61,8 @@ import org.firstinspires.ftc.teamcode.subsystems.*;
  *   - If it's still backwards, it's the CONTROLS that need inverted, not the motors
  *   - This should be done in BaseTeleOp
  */
-@TeleOp(name = "Test Mode", group = "TEST")
-public class TestTeleOp extends OpMode {
+@TeleOp(name = "Calibration Mode", group = "TEST")
+public class CalibrationTeleOp extends OpMode {
 
     protected DriveTrain driveTrain;
     protected Shoulder shoulder;
