@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.opmodes;
+package org.firstinspires.ftc.teamcode.opmodes.test;
 
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
@@ -36,7 +36,7 @@ public class IMUTestOp extends OpMode {
     @Override
     public void loop() {
         Orientation angles = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
-
+        // Z is the rotation we need
         telemetry.addLine()
                 .addData("firstAngle", formatRaw(angles.firstAngle))
                 .addData("secondAngle", formatRaw(angles.secondAngle))
@@ -44,6 +44,6 @@ public class IMUTestOp extends OpMode {
     }
 
     String formatRaw(float rawValue) {
-        return String.format("%d", rawValue);
+        return String.format("%f", rawValue);
     }
 }

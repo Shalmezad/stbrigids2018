@@ -86,4 +86,23 @@ public class RobotMap {
     public static final double MAX_LIFT_SPEED = 0.5;
 
     //endregion
+
+    //region AUTON VALUES
+
+    // How fast to drive when we're going a set distance. Range [0, 1]
+    public static final double AUTON_DRIVE_X_INCHES_SPEED = 0.5;
+
+    // Whether or not to use the encoder. If not, it'll use time
+    public static final boolean AUTON_DRIVE_X_INCHES_USE_ENCODER = true;
+
+    // How long it takes to drive 1 foot at AUTON_DRIVE_X_INCHES_SPEED power
+    public static final double AUTON_DRIVE_X_INCHES_SECONDS_PER_FOOT = 2.0;
+
+    // How many encoder ticks are in 1 foot of drive distance?
+    public static final double AUTON_DRIVE_X_INCHES_TICKS_PER_FOOT = 1280;
+
+    // Whether or not to use the IMU (the built in sensor on the rev module). If not, it'll use time
+    public static final boolean AUTON_TURN_N_DEGREES_USE_IMU = true;
+
+    //endregion
 }
