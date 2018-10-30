@@ -2,7 +2,7 @@ package org.firstinspires.ftc.teamcode.opmodes.teleop;
 
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-@TeleOp(name = "Tank TeleOp", group = "TeleOps")
+@TeleOp(name = "TeleOp - Tank", group = "TeleOps")
 public class TankTeleOp extends BaseTeleOp {
 
     @Override

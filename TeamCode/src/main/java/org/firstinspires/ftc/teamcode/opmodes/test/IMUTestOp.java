@@ -10,7 +10,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
 import static java.lang.Thread.sleep;
 
-@TeleOp(name = "IMU Test", group = "TEST")
+@TeleOp(name = "Test - IMU Test", group = "TEST")
 /**
  * http://stemrobotics.cs.pdx.edu/node/7265
  */

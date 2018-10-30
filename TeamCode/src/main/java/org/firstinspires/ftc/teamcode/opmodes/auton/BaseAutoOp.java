@@ -42,7 +42,7 @@ public abstract class BaseAutoOp extends LinearOpMode {
 
     abstract protected void runAuton();
 
-    protected void driveXInches(double inches) {
+    protected void driveTrainDriveXInches(double inches) {
         // Short circuit if we aren't using the drive train:
         if (RobotMap.DISABLE_DRIVE_TRAIN) {
             return;
@@ -70,19 +70,74 @@ public abstract class BaseAutoOp extends LinearOpMode {
     }
 
     /**
+     * Turns N Degrees RELATIVE to the robot's current heading
      * POSITIVE IS CLOCKWISE
      * NEGATIVE IS COUNTERCLOCKWISE
      *
      * @param degrees
      */
-    protected void turnNDegrees(double degrees) {
-        // TODO: Code me
-
+    protected void driveTrainTurnNDegrees(double degrees) {
         // Short circuit if we aren't using the drive train:
         if (RobotMap.DISABLE_DRIVE_TRAIN) {
             return;
         }
 
+        driveTrain.setAngleTargetDegreesRelative(degrees);
+        timeout.reset();
+
+        // TODO: Move magic numbers to RobotMap
+        double timeoutTime = Math.abs(degrees) * 2.0 / 90.0; // Should take about 2 seconds per 90 degrees tops
+
+        while (opModeIsActive() &&
+                !driveTrain.isAtTargetAngle() &&
+                (timeout.seconds() < timeoutTime)) {
+            if (degrees > 0) {
+                driveTrain.turnRight(RobotMap.AUTON_TURN_N_DEGREES_SPEED);
+            } else {
+                driveTrain.turnLeft(RobotMap.AUTON_TURN_N_DEGREES_SPEED);
+            }
+        }
+
+        driveTrain.stop();
+
+    }
+
+    protected void shoulderRaise() {
+        // Short circuit if we aren't using the shoulder:
+        if (RobotMap.DISABLE_SHOULDER) {
+            return;
+        }
+
+        timeout.reset();
+
+        double timeoutTime = 2;
+
+        while (opModeIsActive() &&
+                !driveTrain.isAtTargetAngle() &&
+                (timeout.seconds() < timeoutTime)) {
+            shoulder.up();
+        }
+
+        shoulder.stop();
+    }
+
+    protected void pickupOut() {
+        // Short circuit if we aren't using the shoulder:
+        if (RobotMap.DISABLE_PICKUP) {
+            return;
+        }
+
+        timeout.reset();
+
+        double timeoutTime = 2;
+
+        while (opModeIsActive() &&
+                !driveTrain.isAtTargetAngle() &&
+                (timeout.seconds() < timeoutTime)) {
+            pickup.out();
+        }
+
+        pickup.stop();
     }
 
 }

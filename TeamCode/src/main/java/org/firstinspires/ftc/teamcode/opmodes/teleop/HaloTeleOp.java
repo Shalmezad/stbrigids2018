@@ -3,7 +3,7 @@ package org.firstinspires.ftc.teamcode.opmodes.teleop;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.Range;
 
-@TeleOp(name = "Halo TeleOp", group = "TeleOps")
+@TeleOp(name = "TeleOp - Halo", group = "TeleOps")
 public class HaloTeleOp extends BaseTeleOp {
 
     @Override

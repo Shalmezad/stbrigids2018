@@ -5,6 +5,10 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.util.ElapsedTime;
+import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
+import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
+import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
+import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 import org.firstinspires.ftc.teamcode.RobotMap;
 import org.firstinspires.ftc.teamcode.util.Constants;
 
@@ -16,6 +20,10 @@ public class DriveTrain {
     BNO055IMU imu;
 
     private double targetInches = 0;
+    // The ammount we want to turn
+    private double targetAngleDegrees = 0;
+    // Where we started
+    private double startDegrees = 0;
     private ElapsedTime runtime = new ElapsedTime();
 
     public DriveTrain(HardwareMap hardwareMap) {
@@ -75,8 +83,28 @@ public class DriveTrain {
         setRawSpeed(speed, speed);
     }
 
+    public void turnLeft(double speed) {
+        speed = Math.abs(speed);
+        // Left wheel goes back, right wheel goes forward
+        setRawSpeed(-speed, speed);
+    }
+
+    public void turnRight(double speed) {
+        speed = Math.abs(speed);
+        // Left wheel goes forward, right wheel goes back
+        setRawSpeed(speed, -speed);
+    }
+
     public int currentDistanceTicks() {
         return leftDrive.getCurrentPosition();
+    }
+
+    public double currentAngleDegrees() {
+        if (!RobotMap.AUTON_TURN_N_DEGREES_USE_IMU) {
+            return 0;
+        }
+        Orientation angles = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
+        return angles.firstAngle;
     }
 
     public void setDistanceTargetInches(double inches) {
@@ -105,7 +133,29 @@ public class DriveTrain {
         } else {
             // use the timer:
             double targetFeet = targetInches * Constants.FEET_PER_INCH;
-            double targetTimeSeconds = RobotMap.AUTON_DRIVE_X_INCHES_SECONDS_PER_FOOT * targetFeet;
+            double targetTimeSeconds = RobotMap.AUTON_DRIVE_X_INCHES_SECONDS_PER_FOOT * Math.abs(targetFeet);
+            return runtime.seconds() >= targetTimeSeconds;
+        }
+    }
+
+    public void setAngleTargetDegreesRelative(double degrees) {
+        targetAngleDegrees = degrees;
+        runtime.reset();
+        leftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        rightDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        leftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        rightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        startDegrees = currentAngleDegrees();
+    }
+
+    public boolean isAtTargetAngle() {
+        // Look at config, see if we're running by IMU or time
+        if (RobotMap.AUTON_TURN_N_DEGREES_USE_IMU) {
+            // TODO: Code me
+            return true;
+        } else {
+            // use the timer:
+            double targetTimeSeconds = RobotMap.AUTON_TURN_N_DEGREES_SECONDS_PER_DEGREE * Math.abs(targetAngleDegrees);
             return runtime.seconds() >= targetTimeSeconds;
         }
     }
