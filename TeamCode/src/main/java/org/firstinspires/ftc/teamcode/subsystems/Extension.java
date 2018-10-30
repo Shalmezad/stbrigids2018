@@ -20,6 +20,8 @@ public class Extension {
         }
 
         extensionMotor.setZeroPowerBehavior(RobotMap.ZERO_POWER_BEHAVIOR_EXTENSION_MOTOR);
+
+        extensionMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
     }
 
     /**

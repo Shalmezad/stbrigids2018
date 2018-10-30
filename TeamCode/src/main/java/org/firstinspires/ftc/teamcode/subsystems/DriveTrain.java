@@ -32,6 +32,9 @@ public class DriveTrain {
         leftDrive.setZeroPowerBehavior(RobotMap.ZERO_POWER_BEHAVIOR_DRIVE_TRAIN_MOTORS);
         rightDrive.setZeroPowerBehavior(RobotMap.ZERO_POWER_BEHAVIOR_DRIVE_TRAIN_MOTORS);
 
+        leftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        rightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
         if (RobotMap.AUTON_TURN_N_DEGREES_USE_IMU) {
             BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
 

@@ -28,6 +28,8 @@ public class Shoulder {
         leftShoulderMotor.setZeroPowerBehavior(RobotMap.ZERO_POWER_BEHAVIOR_SHOULDER_MOTORS);
         rightShoulderMotor.setZeroPowerBehavior(RobotMap.ZERO_POWER_BEHAVIOR_SHOULDER_MOTORS);
 
+        leftShoulderMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        rightShoulderMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
     }
 
     /**

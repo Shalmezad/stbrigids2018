@@ -17,6 +17,8 @@ public class Pickup {
         }
 
         pickupMotor.setZeroPowerBehavior(RobotMap.ZERO_POWER_BEHAVIOR_PICKUP_MOTOR);
+
+        pickupMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
     }
 
     /**

@@ -22,6 +22,7 @@ public class RobotLift {
 
         liftMotor.setZeroPowerBehavior(RobotMap.ZERO_POWER_BEHAVIOR_LIFT_MOTOR);
 
+        liftMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
     }
 
     /**
