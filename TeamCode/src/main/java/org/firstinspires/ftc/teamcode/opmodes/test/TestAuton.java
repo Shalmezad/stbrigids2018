@@ -20,6 +20,8 @@ public class TestAuton extends BaseAutoOp {
             24"
          */
 
+        // Lower our robot off the hook
+        lowerRobot();
 
         // Go forward
         driveTrainDriveXInches(24);

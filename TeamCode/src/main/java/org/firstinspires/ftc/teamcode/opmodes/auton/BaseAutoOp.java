@@ -140,4 +140,17 @@ public abstract class BaseAutoOp extends LinearOpMode {
         pickup.stop();
     }
 
+    protected void lowerRobot(){
+        liftUp();
+        driveTrainDriveXInches(2);
+    }
+
+    protected void liftDown(){
+        // TODO: Code me
+    }
+
+
+    protected void liftUp(){
+        // TODO: Code me
+    }
 }
