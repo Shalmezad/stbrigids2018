@@ -95,7 +95,13 @@ public class DriveTrain {
             int currentTicks = currentDistanceTicks();
             double targetFeet = targetInches * Constants.FEET_PER_INCH;
             double targetTicks = RobotMap.AUTON_DRIVE_X_INCHES_TICKS_PER_FOOT * targetFeet;
-            return currentTicks >= targetTicks;
+            // Are we going forward or backwards?
+            if (targetTicks > 0) {
+                return currentTicks >= targetTicks;
+            } else {
+                return currentTicks <= targetTicks;
+            }
+
         } else {
             // use the timer:
             double targetFeet = targetInches * Constants.FEET_PER_INCH;

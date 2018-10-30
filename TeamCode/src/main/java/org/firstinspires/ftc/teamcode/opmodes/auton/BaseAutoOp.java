@@ -50,6 +50,10 @@ public abstract class BaseAutoOp extends LinearOpMode {
 
         driveTrain.setDistanceTargetInches(inches);
         timeout.reset();
+
+        // TODO: Move magic numbers to RobotMap
+        // Yes, I'm aware this will mean 2 time values for drive x feet.
+        // One for driving based on time, and this one as an emergency in case an encoder fails
         double timeoutTime = Math.abs(inches) * 2.0 / 12.0; // Should take about 2 seconds per foot tops
 
         while (opModeIsActive() &&
