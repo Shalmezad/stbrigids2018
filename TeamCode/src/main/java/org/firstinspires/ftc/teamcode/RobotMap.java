@@ -93,10 +93,10 @@ public class RobotMap {
     public static final double AUTON_DRIVE_X_INCHES_SPEED = 0.5;
 
     // Whether or not to use the encoder. If not, it'll use time
-    public static final boolean AUTON_DRIVE_X_INCHES_USE_ENCODER = true;
+    public static final boolean AUTON_DRIVE_X_INCHES_USE_ENCODER = false;
 
     // How long it takes to drive 1 foot at AUTON_DRIVE_X_INCHES_SPEED power
-    public static final double AUTON_DRIVE_X_INCHES_SECONDS_PER_FOOT = 2.0;
+    public static final double AUTON_DRIVE_X_INCHES_SECONDS_PER_FOOT = 0.5;
 
     // How many encoder ticks are in 1 foot of drive distance?
     public static final double AUTON_DRIVE_X_INCHES_TICKS_PER_FOOT = 1280;
