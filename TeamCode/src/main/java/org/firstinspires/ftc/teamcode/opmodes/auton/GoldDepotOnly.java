@@ -2,12 +2,12 @@ package org.firstinspires.ftc.teamcode.opmodes.auton;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
-@Autonomous(name = "SliverCraterOnly", group = "Auton")
-public class SliverCraterOnly extends BaseAutoOp {
+@Autonomous(name = "GoldDepotOnly", group = "Auton")
+public class GoldDepotOnly extends BaseAutoOp {
     @Override
     protected void runAuton() {
         lowerRobot();
-        driveTrainDriveXInches(19.5);
-        //add extend arm
+        driveTrainDriveXInches(40);
+        pickupOut();
     }
 }
