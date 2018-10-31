@@ -6,6 +6,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 public class SliverDepotOnly extends BaseAutoOp {
     @Override
     protected void runAuton() {
+        lowerRobot();
         driveTrainDriveXInches(7);
         driveTrainTurnNDegrees(-90);
         driveTrainDriveXInches(34);
