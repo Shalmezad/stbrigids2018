@@ -42,6 +42,20 @@ public abstract class BaseAutoOp extends LinearOpMode {
 
     abstract protected void runAuton();
 
+    /**
+     * Waits a couple of seconds before moving on
+     * @param seconds
+     */
+    protected void waitNSeconds(double seconds){
+        timeout.reset();
+
+        double timeoutTime = seconds;
+
+        while (opModeIsActive() &&
+                (timeout.seconds() < timeoutTime)) {
+        }
+    }
+
     protected void driveTrainDriveXInches(double inches) {
         // Short circuit if we aren't using the drive train:
         if (RobotMap.DISABLE_DRIVE_TRAIN) {

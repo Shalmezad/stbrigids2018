@@ -36,6 +36,8 @@ public class TestAuton extends BaseAutoOp {
         shoulderRaise();
         pickupOut();
 
+        waitNSeconds(2);
+
         // Go back
         driveTrainDriveXInches(-24);
 
