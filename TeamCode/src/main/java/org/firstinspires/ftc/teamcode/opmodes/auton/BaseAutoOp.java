@@ -113,7 +113,6 @@ public abstract class BaseAutoOp extends LinearOpMode {
         double timeoutTime = 2;
 
         while (opModeIsActive() &&
-                !driveTrain.isAtTargetAngle() &&
                 (timeout.seconds() < timeoutTime)) {
             shoulder.up();
         }
@@ -132,7 +131,6 @@ public abstract class BaseAutoOp extends LinearOpMode {
         double timeoutTime = 2;
 
         while (opModeIsActive() &&
-                !driveTrain.isAtTargetAngle() &&
                 (timeout.seconds() < timeoutTime)) {
             pickup.out();
         }
@@ -146,11 +144,75 @@ public abstract class BaseAutoOp extends LinearOpMode {
     }
 
     protected void liftDown(){
-        // TODO: Code me
+        // Short circuit if we aren't using the lift:
+        if (RobotMap.DISABLE_LIFT) {
+            return;
+        }
+
+        timeout.reset();
+
+        double timeoutTime = 2;
+
+        while (opModeIsActive() &&
+                (timeout.seconds() < timeoutTime)) {
+            robotLift.down();
+        }
+
+        robotLift.stop();
     }
 
 
     protected void liftUp(){
-        // TODO: Code me
+        // Short circuit if we aren't using the lift:
+        if (RobotMap.DISABLE_LIFT) {
+            return;
+        }
+
+        timeout.reset();
+
+        double timeoutTime = 2;
+
+        while (opModeIsActive() &&
+                (timeout.seconds() < timeoutTime)) {
+            robotLift.up();
+        }
+
+        robotLift.stop();
+    }
+
+    protected void extensionOut(){
+        // Short circuit if we aren't using the extension:
+        if (RobotMap.DISABLE_EXTENSION) {
+            return;
+        }
+
+        timeout.reset();
+
+        double timeoutTime = 2;
+
+        while (opModeIsActive() &&
+                (timeout.seconds() < timeoutTime)) {
+            extension.forward();
+        }
+
+        extension.stop();
+    }
+
+    protected void extensionIn(){
+        // Short circuit if we aren't using the extension:
+        if (RobotMap.DISABLE_EXTENSION) {
+            return;
+        }
+
+        timeout.reset();
+
+        double timeoutTime = 2;
+
+        while (opModeIsActive() &&
+                (timeout.seconds() < timeoutTime)) {
+            extension.backwards();
+        }
+
+        extension.stop();
     }
 }
