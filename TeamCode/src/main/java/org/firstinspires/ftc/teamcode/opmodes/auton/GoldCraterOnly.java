@@ -12,6 +12,6 @@ public class GoldCraterOnly extends BaseAutoOp {
         driveTrainDriveXInches(43);
         driveTrainTurnNDegrees(45);
         driveTrainDriveXInches(16);
-        //add extend arm
+        extensionOut();
     }
 }

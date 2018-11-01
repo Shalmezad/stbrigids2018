@@ -11,6 +11,6 @@ public class GoldCraterAndDepot extends BaseAutoOp {
         pickupOut();
         driveTrainTurnNDegrees(-45);
         driveTrainDriveXInches(75);
-        //add extend
+        extensionOut();
     }
 }

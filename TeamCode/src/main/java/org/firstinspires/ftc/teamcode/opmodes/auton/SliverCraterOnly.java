@@ -8,6 +8,6 @@ public class SliverCraterOnly extends BaseAutoOp {
     protected void runAuton() {
         lowerRobot();
         driveTrainDriveXInches(19.5);
-        //add extend arm
+        extensionOut();
     }
 }
