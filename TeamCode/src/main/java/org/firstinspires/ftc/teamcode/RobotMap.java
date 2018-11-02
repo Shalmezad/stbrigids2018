@@ -77,9 +77,9 @@ public class RobotMap {
     // This limits the maximum speeds we allow certain motors to go
     // This is to help prevent going too fast on sensitive parts
 
-    public static final double MAX_SHOULDER_SPEED = 0.5;
+    public static final double MAX_SHOULDER_SPEED = 0.75;
 
-    public static final double MAX_EXTENSION_SPEED = 0.5;
+    public static final double MAX_EXTENSION_SPEED = 1.0;
 
     public static final double MAX_PICKUP_SPEED = 0.5;
 
@@ -99,7 +99,7 @@ public class RobotMap {
     public static final double AUTON_DRIVE_X_INCHES_SECONDS_PER_FOOT = 0.5;
 
     // How many encoder ticks are in 1 foot of drive distance?
-    public static final double AUTON_DRIVE_X_INCHES_TICKS_PER_FOOT = 1280;
+    public static final double AUTON_DRIVE_X_INCHES_TICKS_PER_FOOT = 300;
 
     // Whether or not to use the IMU (the built in sensor on the rev module). If not, it'll use time
     public static final boolean AUTON_TURN_N_DEGREES_USE_IMU = false;

@@ -15,5 +15,7 @@ public class TestAutonDistance extends BaseAutoOp {
         driveTrainDriveXInches(distanceInches);
         telemetry.addData("Status", "Went 5 feet");
         telemetry.addData("CurrentTicks", "%d", driveTrain.currentDistanceTicks());
+        telemetry.update();
+        waitNSeconds(10);
     }
 }

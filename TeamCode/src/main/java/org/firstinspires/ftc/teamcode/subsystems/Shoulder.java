@@ -54,4 +54,20 @@ public class Shoulder {
     public void stop(){
         setRawSpeed(0);
     }
+
+    public int getLeftShoulderPosition(){
+        return leftShoulderMotor.getCurrentPosition();
+        //return leftShoulderMotor.
+    }
+
+    public int getRightShoulderPosition(){
+        return rightShoulderMotor.getCurrentPosition();
+        //return leftShoulderMotor.
+    }
+
+    public void resetTicks(){
+        leftShoulderMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        leftShoulderMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        rightShoulderMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+    }
 }

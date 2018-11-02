@@ -44,4 +44,14 @@ public class Extension {
     public void stop(){
         setRawSpeed(0);
     }
+
+    public int getExtensionPosition(){
+        return extensionMotor.getCurrentPosition();
+        //return leftShoulderMotor.
+    }
+
+    public void resetTicks(){
+        extensionMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        extensionMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+    }
 }
