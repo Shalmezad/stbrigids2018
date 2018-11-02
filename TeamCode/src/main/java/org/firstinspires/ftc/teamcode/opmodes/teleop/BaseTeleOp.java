@@ -58,13 +58,43 @@ public abstract class BaseTeleOp extends OpMode {
     abstract void handleJoystickDrive();
 
     private void handleShoulder() {
-        double shoulderSpeed = -gamepad2.left_stick_y;
+        if(RobotMap.SHOULDER_USE_ENCODER){
+            // We're using the encoder....
+            // Here we go...
+            // 1) Check to see if we're using a preset button:
+            if(gamepad2.a){
+                shoulder.setTargetTicks(RobotMap.SHOULDER_POSITION_DOWN);
+            }
+            if(gamepad2.b){
+                shoulder.setTargetTicks(RobotMap.SHOULDER_POSITION_LOW);
+            }
+            if(gamepad2.y){
+                shoulder.setTargetTicks(RobotMap.SHOULDER_POSITION_HIGH);
+            }
+            // 2) Check to see if we're resetting:
+            if(gamepad2.x){
+                shoulder.resetTicks();
+            }
+            // 3) See if we're adjusting:
+            int adjTicks = (int) (-gamepad2.left_stick_y * RobotMap.SHOULDER_TICKS_PER_JOYSTICK_PER_LOOP);
+            // Add it to our target position
+            int targetPosition = shoulder.getTargetTicks() + adjTicks;
+            // Cap it:
+            targetPosition = Range.clip(targetPosition,
+                    RobotMap.SHOULDER_POSITION_MIN,
+                    RobotMap.SHOULDER_POSITION_MAX);
+            // Set it:
+            shoulder.setTargetTicks(targetPosition);
+        }
+        else {
+            double shoulderSpeed = -gamepad2.left_stick_y;
 
-        shoulderSpeed = Range.scale(shoulderSpeed,
-                -1.0, 1.0,
-                -RobotMap.MAX_SHOULDER_SPEED, RobotMap.MAX_SHOULDER_SPEED);
+            shoulderSpeed = Range.scale(shoulderSpeed,
+                    -1.0, 1.0,
+                    -RobotMap.MAX_SHOULDER_SPEED, RobotMap.MAX_SHOULDER_SPEED);
 
-        shoulder.setRawSpeed(shoulderSpeed);
+            shoulder.setRawSpeed(shoulderSpeed);
+        }
     }
 
     private void handleExtension() {

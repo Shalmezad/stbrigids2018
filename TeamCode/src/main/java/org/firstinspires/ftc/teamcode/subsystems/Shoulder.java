@@ -28,8 +28,18 @@ public class Shoulder {
         leftShoulderMotor.setZeroPowerBehavior(RobotMap.ZERO_POWER_BEHAVIOR_SHOULDER_MOTORS);
         rightShoulderMotor.setZeroPowerBehavior(RobotMap.ZERO_POWER_BEHAVIOR_SHOULDER_MOTORS);
 
-        leftShoulderMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        rightShoulderMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
+        leftShoulderMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        rightShoulderMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+        if(RobotMap.SHOULDER_USE_ENCODER){
+            leftShoulderMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            rightShoulderMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        }
+        else {
+            leftShoulderMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+            rightShoulderMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        }
     }
 
     /**
@@ -67,7 +77,19 @@ public class Shoulder {
 
     public void resetTicks(){
         leftShoulderMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        leftShoulderMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         rightShoulderMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        leftShoulderMotor.setTargetPosition(0);
+        rightShoulderMotor.setTargetPosition(0);
+        leftShoulderMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        rightShoulderMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+    }
+
+    public int getTargetTicks(){
+        return rightShoulderMotor.getTargetPosition();
+    }
+
+    public void setTargetTicks(int ticks){
+        rightShoulderMotor.setTargetPosition(ticks);
+        leftShoulderMotor.setTargetPosition(ticks);
     }
 }

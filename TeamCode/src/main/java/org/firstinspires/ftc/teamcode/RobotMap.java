@@ -87,6 +87,31 @@ public class RobotMap {
 
     //endregion
 
+    //region SHOULDER POSITIONS
+
+    // Whether or not to use the encoder.
+    // If not, it'll just be plain ol' voltage mode
+    public static final boolean SHOULDER_USE_ENCODER = false;
+
+    // Note: MIN must be less than 0 so that it can be driven down if encoder is off
+    // In the event of emergency, hold down and keep pressing reset.
+    public static final int SHOULDER_POSITION_MIN = -30;
+    public static final int SHOULDER_POSITION_DOWN = 0;
+    // For reaching into the crater.
+    public static final int SHOULDER_POSITION_LOW = 103;
+    // For reaching the lander
+    public static final int SHOULDER_POSITION_HIGH = 520;
+    public static final int SHOULDER_POSITION_MAX = 580;
+
+    // This is hard to describe.
+    // So, a joystick goes from -1 to 1
+    // We want to translate that to the number of ticks we should adjust our target position
+    // EVERY TIME WE LOOP (about once every 30ms or so if I recall)
+    public static final int SHOULDER_TICKS_PER_JOYSTICK_PER_LOOP = 10;
+
+
+    //endregion
+
     //region AUTON VALUES
 
     // How fast to drive when we're going a set distance. Range [0, 1]
