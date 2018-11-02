@@ -153,7 +153,18 @@ public class DriveTrain {
         if (RobotMap.AUTON_TURN_N_DEGREES_USE_IMU) {
             // TODO: Code me
             return true;
-        } else {
+        } else if (RobotMap.AUTON_TURN_N_DEGREES_USE_ENCODERS) {
+            // use the encoder distance
+            int currentTicks = currentDistanceTicks();
+            double targetTicks = RobotMap.AUTON_TURN_N_DEGREES_TICKS_PER_DEGREE * targetAngleDegrees;
+            // Are we going forward or backwards?
+            if (targetTicks > 0) {
+                return currentTicks >= targetTicks;
+            } else {
+                return currentTicks <= targetTicks;
+            }
+        }
+        else {
             // use the timer:
             double targetTimeSeconds = RobotMap.AUTON_TURN_N_DEGREES_SECONDS_PER_DEGREE * Math.abs(targetAngleDegrees);
             return runtime.seconds() >= targetTimeSeconds;

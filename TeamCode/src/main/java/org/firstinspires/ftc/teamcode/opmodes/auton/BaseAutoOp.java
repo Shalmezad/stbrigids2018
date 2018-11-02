@@ -165,7 +165,7 @@ public abstract class BaseAutoOp extends LinearOpMode {
 
         timeout.reset();
 
-        double timeoutTime = 2;
+        double timeoutTime = RobotMap.AUTON_LIFT_TIME;
 
         while (opModeIsActive() &&
                 (timeout.seconds() < timeoutTime)) {
@@ -184,7 +184,7 @@ public abstract class BaseAutoOp extends LinearOpMode {
 
         timeout.reset();
 
-        double timeoutTime = 2;
+        double timeoutTime = RobotMap.AUTON_LIFT_TIME;
 
         while (opModeIsActive() &&
                 (timeout.seconds() < timeoutTime)) {
