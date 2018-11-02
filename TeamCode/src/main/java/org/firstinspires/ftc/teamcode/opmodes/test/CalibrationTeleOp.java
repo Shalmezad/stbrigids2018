@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.opmodes.test;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.teamcode.RobotMap;
@@ -62,6 +63,7 @@ import org.firstinspires.ftc.teamcode.subsystems.*;
  *   - This should be done in BaseTeleOp
  */
 @TeleOp(name = "Test - Calibration Mode", group = "TEST")
+@Disabled
 public class CalibrationTeleOp extends OpMode {
 
     protected DriveTrain driveTrain;

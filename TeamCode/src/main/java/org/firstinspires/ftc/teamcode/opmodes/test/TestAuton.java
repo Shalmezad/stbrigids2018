@@ -1,9 +1,11 @@
 package org.firstinspires.ftc.teamcode.opmodes.test;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import org.firstinspires.ftc.teamcode.opmodes.auton.BaseAutoOp;
 
 @Autonomous(name = "Test - Rectangle Test", group = "TEST")
+@Disabled
 public class TestAuton extends BaseAutoOp {
 
     @Override

@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.opmodes.test;
 
 import com.qualcomm.hardware.bosch.BNO055IMU;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
@@ -11,6 +12,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 import static java.lang.Thread.sleep;
 
 @TeleOp(name = "Test - IMU Test", group = "TEST")
+@Disabled
 /**
  * http://stemrobotics.cs.pdx.edu/node/7265
  */
