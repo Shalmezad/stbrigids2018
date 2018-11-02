@@ -13,6 +13,13 @@ public class HaloTeleOp extends BaseTeleOp {
 
         double drive = -gamepad1.left_stick_y;
         double turn = gamepad1.right_stick_x;
+
+        // Half speed
+        if(gamepad1.right_bumper){
+            drive *= 0.5;
+            turn *= 0.5;
+        }
+
         leftPower = Range.clip(drive + turn, -1.0, 1.0);
         rightPower = Range.clip(drive - turn, -1.0, 1.0);
 
