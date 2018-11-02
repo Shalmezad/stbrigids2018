@@ -41,14 +41,14 @@ public class RobotMap {
     // If a motor is going backwards, change it here:
 
     // Base on our robot, only ONE of these should be inverted
-    public static final boolean INVERT_LEFT_DRIVE_TRAIN_MOTOR = false;
-    public static final boolean INVERT_RIGHT_DRIVE_TRAIN_MOTOR = true;
+    public static final boolean INVERT_LEFT_DRIVE_TRAIN_MOTOR = true;
+    public static final boolean INVERT_RIGHT_DRIVE_TRAIN_MOTOR = false;
 
     // Base on our robot, only ONE of these should be inverted
     public static final boolean INVERT_LEFT_SHOULDER_MOTOR = false;
     public static final boolean INVERT_RIGHT_SHOULDER_MOTOR = true;
 
-    public static final boolean INVERT_EXTENSION_MOTOR = true;
+    public static final boolean INVERT_EXTENSION_MOTOR = false;
 
     public static final boolean INVERT_PICKUP_MOTOR = false;
 
@@ -102,7 +102,7 @@ public class RobotMap {
     public static final double AUTON_DRIVE_X_INCHES_TICKS_PER_FOOT = 1280;
 
     // Whether or not to use the IMU (the built in sensor on the rev module). If not, it'll use time
-    public static final boolean AUTON_TURN_N_DEGREES_USE_IMU = true;
+    public static final boolean AUTON_TURN_N_DEGREES_USE_IMU = false;
 
     // How long to turn 1 degree.
     // Would recommend expressing it like 2.0 / 90.0 (2 seconds to turn 90 degrees)
