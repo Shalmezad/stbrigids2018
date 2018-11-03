@@ -83,7 +83,7 @@ public class RobotMap {
 
     public static final double MAX_PICKUP_SPEED = 0.5;
 
-    public static final double MAX_LIFT_SPEED = 0.5;
+    public static final double MAX_LIFT_SPEED = 0.8;
 
     //endregion
 
@@ -91,7 +91,7 @@ public class RobotMap {
 
     // Whether or not to use the encoder.
     // If not, it'll just be plain ol' voltage mode
-    public static final boolean SHOULDER_USE_ENCODER = false;
+    public static final boolean SHOULDER_USE_ENCODER = true;
 
     // Note: MIN must be less than 0 so that it can be driven down if encoder is off
     // In the event of emergency, hold down and keep pressing reset.
@@ -118,7 +118,7 @@ public class RobotMap {
     public static final double AUTON_DRIVE_X_INCHES_SPEED = 0.5;
 
     // Whether or not to use the encoder. If not, it'll use time
-    public static final boolean AUTON_DRIVE_X_INCHES_USE_ENCODER = false;
+    public static final boolean AUTON_DRIVE_X_INCHES_USE_ENCODER = true;
 
     // How long it takes to drive 1 foot at AUTON_DRIVE_X_INCHES_SPEED power
     public static final double AUTON_DRIVE_X_INCHES_SECONDS_PER_FOOT = 0.5;
@@ -129,19 +129,19 @@ public class RobotMap {
     // Whether or not to use the IMU (the built in sensor on the rev module). If not, it'll use time
     public static final boolean AUTON_TURN_N_DEGREES_USE_IMU = false;
 
-    public static final boolean AUTON_TURN_N_DEGREES_USE_ENCODERS = false;
+    public static final boolean AUTON_TURN_N_DEGREES_USE_ENCODERS = true;
 
     // How long to turn 1 degree.
     // Would recommend expressing it like 2.0 / 90.0 (2 seconds to turn 90 degrees)
-    public static final double AUTON_TURN_N_DEGREES_SECONDS_PER_DEGREE = 2.0 / 90.0;
+    public static final double AUTON_TURN_N_DEGREES_SECONDS_PER_DEGREE = 2.5 / 90.0;
 
-    public static final double AUTON_TURN_N_DEGREES_TICKS_PER_DEGREE = 300 / 90.0;
+    public static final double AUTON_TURN_N_DEGREES_TICKS_PER_DEGREE = 300/80;
 
     public static final double AUTON_TURN_N_DEGREES_SPEED = 0.5;
 
 
     // How long to drive the lift:
-    public static final double AUTON_LIFT_TIME = 2.0;
+    public static final double AUTON_LIFT_TIME = 10;
 
     //endregion
 }

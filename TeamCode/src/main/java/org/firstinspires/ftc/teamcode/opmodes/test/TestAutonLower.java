@@ -11,5 +11,8 @@ public class TestAutonLower extends BaseAutoOp {
     protected void runAuton() {
         // The sole purpose of this test is to see if lowering the robot works
         lowerRobot();
+        waitNSeconds(1);
+        driveTrainDriveXInches(12);
     }
+
 }

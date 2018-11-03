@@ -68,12 +68,12 @@ public abstract class BaseAutoOp extends LinearOpMode {
         // TODO: Move magic numbers to RobotMap
         // Yes, I'm aware this will mean 2 time values for drive x feet.
         // One for driving based on time, and this one as an emergency in case an encoder fails
-        double timeoutTime = Math.abs(inches) * 2.0 / 12.0; // Should take about 2 seconds per foot tops
+        double timeoutTime = Math.abs(inches) * 8.0 / 12.0; // Should take about 2 seconds per foot tops
 
         while (opModeIsActive() &&
                 !driveTrain.isAtTargetDistance() &&
-                (timeout.seconds() < timeoutTime)) {
-            if (inches > 0) {
+               (timeout.seconds() < timeoutTime)) {
+           if (inches > 0) {
                 driveTrain.forward(RobotMap.AUTON_DRIVE_X_INCHES_SPEED);
             } else {
                 driveTrain.backward(RobotMap.AUTON_DRIVE_X_INCHES_SPEED);
@@ -100,7 +100,7 @@ public abstract class BaseAutoOp extends LinearOpMode {
         timeout.reset();
 
         // TODO: Move magic numbers to RobotMap
-        double timeoutTime = Math.abs(degrees) * 2.0 / 90.0; // Should take about 2 seconds per 90 degrees tops
+        double timeoutTime = Math.abs(degrees) * 4 / 90.0; // Should take about 2 seconds per 90 degrees tops
 
         while (opModeIsActive() &&
                 !driveTrain.isAtTargetAngle() &&
@@ -154,7 +154,7 @@ public abstract class BaseAutoOp extends LinearOpMode {
 
     protected void lowerRobot(){
         liftUp();
-        driveTrainDriveXInches(2);
+
     }
 
     protected void liftDown(){
@@ -189,6 +189,12 @@ public abstract class BaseAutoOp extends LinearOpMode {
         while (opModeIsActive() &&
                 (timeout.seconds() < timeoutTime)) {
             robotLift.up();
+        }
+        //comment this out for competition...for testing only so
+        //we do not have to reset the hook
+        while (opModeIsActive() &&
+                (timeout.seconds() < timeoutTime)) {
+            robotLift.down();
         }
 
         robotLift.stop();

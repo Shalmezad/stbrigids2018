@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import org.firstinspires.ftc.teamcode.opmodes.auton.BaseAutoOp;
 
 @Autonomous(name = "Test - Rectangle Test", group = "TEST")
-@Disabled
+
 public class TestAuton extends BaseAutoOp {
 
     @Override
@@ -23,16 +23,16 @@ public class TestAuton extends BaseAutoOp {
          */
 
         // Lower our robot off the hook
-        lowerRobot();
+        //lowerRobot();
 
         // Go forward
-        driveTrainDriveXInches(24);
+        driveTrainDriveXInches(12);
 
         // Turn left
         driveTrainTurnNDegrees(-45);
 
         // Go forward
-        driveTrainDriveXInches(24);
+        driveTrainDriveXInches(12);
 
         // Raise the arm and spit the marker:
         shoulderRaise();
@@ -41,13 +41,13 @@ public class TestAuton extends BaseAutoOp {
         waitNSeconds(2);
 
         // Go back
-        driveTrainDriveXInches(-24);
+        driveTrainDriveXInches(-12);
 
         // Turn back
         driveTrainTurnNDegrees(45);
 
         // Go back
-        driveTrainDriveXInches(-24);
+        driveTrainDriveXInches(-12);
 
     }
 }
