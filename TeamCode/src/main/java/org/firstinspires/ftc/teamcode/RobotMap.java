@@ -81,7 +81,7 @@ public class RobotMap {
 
     public static final double MAX_EXTENSION_SPEED = 1.0;
 
-    public static final double MAX_PICKUP_SPEED = 0.5;
+    public static final double MAX_PICKUP_SPEED = 0.8;
 
     public static final double MAX_LIFT_SPEED = 0.8;
 
@@ -91,7 +91,7 @@ public class RobotMap {
 
     // Whether or not to use the encoder.
     // If not, it'll just be plain ol' voltage mode
-    public static final boolean SHOULDER_USE_ENCODER = true;
+    public static final boolean SHOULDER_USE_ENCODER = false;
 
     // Note: MIN must be less than 0 so that it can be driven down if encoder is off
     // In the event of emergency, hold down and keep pressing reset.

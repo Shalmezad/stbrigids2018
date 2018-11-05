@@ -17,7 +17,7 @@ public abstract class BaseAutoOp extends LinearOpMode {
     private void setupBot() {
         if (!RobotMap.DISABLE_DRIVE_TRAIN) {
             driveTrain = new DriveTrain(hardwareMap);
-        }
+    }
         if (!RobotMap.DISABLE_SHOULDER) {
             shoulder = new Shoulder(hardwareMap);
         }
@@ -68,7 +68,7 @@ public abstract class BaseAutoOp extends LinearOpMode {
         // TODO: Move magic numbers to RobotMap
         // Yes, I'm aware this will mean 2 time values for drive x feet.
         // One for driving based on time, and this one as an emergency in case an encoder fails
-        double timeoutTime = Math.abs(inches) * 8.0 / 12.0; // Should take about 2 seconds per foot tops
+        double timeoutTime = Math.abs(inches) * 4.0 / 12.0; // Should take about 2 seconds per foot tops
 
         while (opModeIsActive() &&
                 !driveTrain.isAtTargetDistance() &&
@@ -96,7 +96,7 @@ public abstract class BaseAutoOp extends LinearOpMode {
             return;
         }
 
-        driveTrain.setAngleTargetDegreesRelative(degrees);
+        driveTrain.setAngleTargetDegreesRelative(degrees*1.125);
         timeout.reset();
 
         // TODO: Move magic numbers to RobotMap
@@ -124,7 +124,7 @@ public abstract class BaseAutoOp extends LinearOpMode {
 
         timeout.reset();
 
-        double timeoutTime = 2;
+        double timeoutTime = 0.3;
 
         while (opModeIsActive() &&
                 (timeout.seconds() < timeoutTime)) {
@@ -142,7 +142,7 @@ public abstract class BaseAutoOp extends LinearOpMode {
 
         timeout.reset();
 
-        double timeoutTime = 2;
+        double timeoutTime = 0.5;
 
         while (opModeIsActive() &&
                 (timeout.seconds() < timeoutTime)) {
@@ -158,7 +158,7 @@ public abstract class BaseAutoOp extends LinearOpMode {
     }
 
     protected void liftDown(){
-        // Short circuit if we aren't using the lift:
+        //Short circuit if we aren't using the lift:
         if (RobotMap.DISABLE_LIFT) {
             return;
         }
@@ -175,6 +175,10 @@ public abstract class BaseAutoOp extends LinearOpMode {
         robotLift.stop();
     }
 
+    protected void raiseRobot(){
+        liftDown();
+
+    }
 
     protected void liftUp(){
         // Short circuit if we aren't using the lift:

@@ -7,7 +7,8 @@ public class SliverCraterOnly extends BaseAutoOp {
     @Override
     protected void runAuton() {
         lowerRobot();
-        driveTrainDriveXInches(28);
-        extensionOut();
+        waitNSeconds(1);
+        driveTrainDriveXInches(30);
+        raiseRobot();
     }
 }

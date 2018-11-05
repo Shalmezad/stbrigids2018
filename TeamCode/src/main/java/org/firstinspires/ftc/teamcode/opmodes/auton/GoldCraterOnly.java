@@ -7,11 +7,10 @@ public class GoldCraterOnly extends BaseAutoOp {
     @Override
     protected void runAuton() {
         lowerRobot();
-        driveTrainDriveXInches(15);
-        driveTrainTurnNDegrees(90);
-        driveTrainDriveXInches(43);
-        driveTrainTurnNDegrees(45);
-        driveTrainDriveXInches(16);
-        extensionOut();
+        driveTrainDriveXInches(46);
+        driveTrainTurnNDegrees(135);
+        driveTrainDriveXInches(72);
+        raiseRobot();
+        //extensionOut();
     }
 }

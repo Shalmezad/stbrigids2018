@@ -17,9 +17,9 @@ public class TestAuton extends BaseAutoOp {
         /*
                   E
                  /
-                / 24"
+                / 12"
          S-----/
-            24"
+            12"
          */
 
         // Lower our robot off the hook

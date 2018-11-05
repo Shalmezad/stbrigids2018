@@ -11,7 +11,7 @@ public class TestAutonTurn extends BaseAutoOp {
     protected void runAuton() {
         telemetry.addData("Status", "Turning 90 degrees");
         telemetry.update();
-        driveTrainTurnNDegrees(180);
+        driveTrainTurnNDegrees(90);
         telemetry.addData("Status", "Went 90 degrees");
         telemetry.addData("CurrentTicks", "%d", driveTrain.currentDistanceTicks());
         telemetry.update();
