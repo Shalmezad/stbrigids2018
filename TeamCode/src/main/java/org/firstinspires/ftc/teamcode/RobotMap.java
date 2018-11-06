@@ -78,6 +78,7 @@ public class RobotMap {
     // This is to help prevent going too fast on sensitive parts
 
     public static final double MAX_SHOULDER_SPEED = 0.75;
+    public static final double MAX_SHOULDER_AUTON_SPEED = 0.50;
 
     public static final double MAX_EXTENSION_SPEED = 1.0;
 
@@ -91,7 +92,7 @@ public class RobotMap {
 
     // Whether or not to use the encoder.
     // If not, it'll just be plain ol' voltage mode
-    public static final boolean SHOULDER_USE_ENCODER = false;
+    public static final boolean SHOULDER_USE_ENCODER = true;
 
     // Note: MIN must be less than 0 so that it can be driven down if encoder is off
     // In the event of emergency, hold down and keep pressing reset.
@@ -100,8 +101,8 @@ public class RobotMap {
     // For reaching into the crater.
     public static final int SHOULDER_POSITION_LOW = 103;
     // For reaching the lander
-    public static final int SHOULDER_POSITION_HIGH = 520;
-    public static final int SHOULDER_POSITION_MAX = 580;
+    public static final int SHOULDER_POSITION_HIGH = 452;
+    public static final int SHOULDER_POSITION_MAX = 500;
 
     // This is hard to describe.
     // So, a joystick goes from -1 to 1
@@ -135,13 +136,13 @@ public class RobotMap {
     // Would recommend expressing it like 2.0 / 90.0 (2 seconds to turn 90 degrees)
     public static final double AUTON_TURN_N_DEGREES_SECONDS_PER_DEGREE = 2.5 / 90.0;
 
-    public static final double AUTON_TURN_N_DEGREES_TICKS_PER_DEGREE = 300/80;
+    public static final double AUTON_TURN_N_DEGREES_TICKS_PER_DEGREE = 272.0/80.0;
 
     public static final double AUTON_TURN_N_DEGREES_SPEED = 0.5;
 
 
     // How long to drive the lift:
-    public static final double AUTON_LIFT_TIME = 10;
+    public static final double AUTON_LIFT_TIME = 9.5;
 
     //endregion
 }

@@ -10,6 +10,7 @@ public class TestShoulder extends BaseAutoOp {
 
     @Override
     protected void runAuton() {
+        shoulder.resetTicks();
         shoulder.setTargetTicks(RobotMap.SHOULDER_POSITION_DOWN);
         waitNSeconds(2);
         shoulder.setTargetTicks(RobotMap.SHOULDER_POSITION_LOW);
@@ -20,5 +21,6 @@ public class TestShoulder extends BaseAutoOp {
         waitNSeconds(2);
         shoulder.setTargetTicks(RobotMap.SHOULDER_POSITION_DOWN);
         waitNSeconds(2);
+        shoulder.stop();
     }
 }

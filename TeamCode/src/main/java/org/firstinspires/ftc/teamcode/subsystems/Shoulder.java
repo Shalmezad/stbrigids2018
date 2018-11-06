@@ -33,8 +33,7 @@ public class Shoulder {
         rightShoulderMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
         if(RobotMap.SHOULDER_USE_ENCODER){
-            leftShoulderMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            rightShoulderMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            resetTicks();
         }
         else {
             leftShoulderMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
@@ -91,5 +90,7 @@ public class Shoulder {
     public void setTargetTicks(int ticks){
         rightShoulderMotor.setTargetPosition(ticks);
         leftShoulderMotor.setTargetPosition(ticks);
+        rightShoulderMotor.setPower(RobotMap.MAX_SHOULDER_AUTON_SPEED);
+        leftShoulderMotor.setPower(RobotMap.MAX_SHOULDER_AUTON_SPEED);
     }
 }

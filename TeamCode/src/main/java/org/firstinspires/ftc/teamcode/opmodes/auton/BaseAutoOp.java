@@ -17,7 +17,7 @@ public abstract class BaseAutoOp extends LinearOpMode {
     private void setupBot() {
         if (!RobotMap.DISABLE_DRIVE_TRAIN) {
             driveTrain = new DriveTrain(hardwareMap);
-    }
+        }
         if (!RobotMap.DISABLE_SHOULDER) {
             shoulder = new Shoulder(hardwareMap);
         }
@@ -35,6 +35,11 @@ public abstract class BaseAutoOp extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
         setupBot();
+
+        while (!(isStarted() || isStopRequested())) {
+            idle();
+        }
+
         runAuton();
     }
 
@@ -44,9 +49,10 @@ public abstract class BaseAutoOp extends LinearOpMode {
 
     /**
      * Waits a couple of seconds before moving on
+     *
      * @param seconds
      */
-    protected void waitNSeconds(double seconds){
+    protected void waitNSeconds(double seconds) {
         timeout.reset();
 
         double timeoutTime = seconds;
@@ -72,8 +78,8 @@ public abstract class BaseAutoOp extends LinearOpMode {
 
         while (opModeIsActive() &&
                 !driveTrain.isAtTargetDistance() &&
-               (timeout.seconds() < timeoutTime)) {
-           if (inches > 0) {
+                (timeout.seconds() < timeoutTime)) {
+            if (inches > 0) {
                 driveTrain.forward(RobotMap.AUTON_DRIVE_X_INCHES_SPEED);
             } else {
                 driveTrain.backward(RobotMap.AUTON_DRIVE_X_INCHES_SPEED);
@@ -96,11 +102,11 @@ public abstract class BaseAutoOp extends LinearOpMode {
             return;
         }
 
-        driveTrain.setAngleTargetDegreesRelative(degrees*1.125);
+        driveTrain.setAngleTargetDegreesRelative(degrees);
         timeout.reset();
 
         // TODO: Move magic numbers to RobotMap
-        double timeoutTime = Math.abs(degrees) * 4 / 90.0; // Should take about 2 seconds per 90 degrees tops
+        double timeoutTime = Math.abs(degrees) * 4.0 / 90.0; // Should take about 2 seconds per 90 degrees tops
 
         while (opModeIsActive() &&
                 !driveTrain.isAtTargetAngle() &&
@@ -152,12 +158,12 @@ public abstract class BaseAutoOp extends LinearOpMode {
         pickup.stop();
     }
 
-    protected void lowerRobot(){
+    protected void lowerRobot() {
         liftUp();
 
     }
 
-    protected void liftDown(){
+    protected void liftDown() {
         //Short circuit if we aren't using the lift:
         if (RobotMap.DISABLE_LIFT) {
             return;
@@ -175,12 +181,12 @@ public abstract class BaseAutoOp extends LinearOpMode {
         robotLift.stop();
     }
 
-    protected void raiseRobot(){
+    protected void raiseRobot() {
         liftDown();
 
     }
 
-    protected void liftUp(){
+    protected void liftUp() {
         // Short circuit if we aren't using the lift:
         if (RobotMap.DISABLE_LIFT) {
             return;
@@ -204,7 +210,7 @@ public abstract class BaseAutoOp extends LinearOpMode {
         robotLift.stop();
     }
 
-    protected void extensionOut(){
+    protected void extensionOut() {
         // Short circuit if we aren't using the extension:
         if (RobotMap.DISABLE_EXTENSION) {
             return;
@@ -222,7 +228,7 @@ public abstract class BaseAutoOp extends LinearOpMode {
         extension.stop();
     }
 
-    protected void extensionIn(){
+    protected void extensionIn() {
         // Short circuit if we aren't using the extension:
         if (RobotMap.DISABLE_EXTENSION) {
             return;
