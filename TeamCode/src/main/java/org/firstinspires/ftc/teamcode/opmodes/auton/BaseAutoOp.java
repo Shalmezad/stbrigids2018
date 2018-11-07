@@ -36,6 +36,8 @@ public abstract class BaseAutoOp extends LinearOpMode {
     public void runOpMode() throws InterruptedException {
         setupBot();
 
+        // Maybe replace with `waitForStart();`?
+        // Seems to be working.... for now
         while (!(isStarted() || isStopRequested())) {
             idle();
         }

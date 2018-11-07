@@ -35,6 +35,8 @@ public class RobotMap {
 
     public static final String HW_NAME_LIFT_MOTOR = "lift";
 
+    public static final String  HW_NAME_WEBCAM = "Webcam 1";
+
     //endregion
 
     //region MOTOR INVERSIONS
@@ -101,8 +103,8 @@ public class RobotMap {
     // For reaching into the crater.
     public static final int SHOULDER_POSITION_LOW = 103;
     // For reaching the lander
-    public static final int SHOULDER_POSITION_HIGH = 452;
-    public static final int SHOULDER_POSITION_MAX = 500;
+    public static final int SHOULDER_POSITION_HIGH = 580;
+    public static final int SHOULDER_POSITION_MAX = 770;
 
     // This is hard to describe.
     // So, a joystick goes from -1 to 1
@@ -136,13 +138,13 @@ public class RobotMap {
     // Would recommend expressing it like 2.0 / 90.0 (2 seconds to turn 90 degrees)
     public static final double AUTON_TURN_N_DEGREES_SECONDS_PER_DEGREE = 2.5 / 90.0;
 
-    public static final double AUTON_TURN_N_DEGREES_TICKS_PER_DEGREE = 272.0/80.0;
+    public static final double AUTON_TURN_N_DEGREES_TICKS_PER_DEGREE = 324.0/90.0;
 
     public static final double AUTON_TURN_N_DEGREES_SPEED = 0.5;
 
 
     // How long to drive the lift:
-    public static final double AUTON_LIFT_TIME = 9.5;
+    public static final double AUTON_LIFT_TIME = 4.7;
 
     //endregion
 }

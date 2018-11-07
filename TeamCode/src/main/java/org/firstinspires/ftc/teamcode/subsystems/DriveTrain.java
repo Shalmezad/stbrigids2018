@@ -86,16 +86,26 @@ public class DriveTrain {
     public void turnLeft(double speed) {
         speed = Math.abs(speed);
         // Left wheel goes back, right wheel goes forward
-        setRawSpeed(-speed, speed);
+        //setRawSpeed(-speed, speed);
+        setRawSpeed(0, speed);
     }
 
     public void turnRight(double speed) {
         speed = Math.abs(speed);
         // Left wheel goes forward, right wheel goes back
-        setRawSpeed(speed, -speed);
+        //setRawSpeed(speed, -speed);
+        setRawSpeed(speed, 0);
     }
 
     public int currentDistanceTicks() {
+        return leftDrive.getCurrentPosition();
+    }
+
+    public int currentLeftDistanceTicks() {
+        return leftDrive.getCurrentPosition();
+    }
+
+    public int currentRightDistanceTicks() {
         return leftDrive.getCurrentPosition();
     }
 
@@ -155,12 +165,14 @@ public class DriveTrain {
             return true;
         } else if (RobotMap.AUTON_TURN_N_DEGREES_USE_ENCODERS) {
             // use the encoder distance
-            int currentTicks = currentDistanceTicks();
+            //int currentTicks = currentDistanceTicks();
             double targetTicks = RobotMap.AUTON_TURN_N_DEGREES_TICKS_PER_DEGREE * targetAngleDegrees;
             // Are we going forward or backwards?
             if (targetTicks > 0) {
+                int currentTicks = currentLeftDistanceTicks();
                 return currentTicks >= targetTicks;
             } else {
+                int currentTicks = currentRightDistanceTicks();
                 return currentTicks <= targetTicks;
             }
         }
