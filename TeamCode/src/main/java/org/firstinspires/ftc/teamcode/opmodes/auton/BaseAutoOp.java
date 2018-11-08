@@ -40,6 +40,8 @@ public abstract class BaseAutoOp extends LinearOpMode {
         // Seems to be working.... for now
         while (!(isStarted() || isStopRequested())) {
             idle();
+            telemetry.addData("Status", "Waiting in Init");
+            telemetry.update();
         }
 
         runAuton();
@@ -173,7 +175,7 @@ public abstract class BaseAutoOp extends LinearOpMode {
 
         timeout.reset();
 
-        double timeoutTime = RobotMap.AUTON_LIFT_TIME;
+        double timeoutTime = RobotMap.AUTON_LIFT_DOWN_TIME;
 
         while (opModeIsActive() &&
                 (timeout.seconds() < timeoutTime)) {
@@ -196,7 +198,7 @@ public abstract class BaseAutoOp extends LinearOpMode {
 
         timeout.reset();
 
-        double timeoutTime = RobotMap.AUTON_LIFT_TIME;
+        double timeoutTime = RobotMap.AUTON_LIFT_UP_TIME;
 
         while (opModeIsActive() &&
                 (timeout.seconds() < timeoutTime)) {

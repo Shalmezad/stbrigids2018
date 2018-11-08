@@ -110,7 +110,7 @@ public class RobotMap {
     // So, a joystick goes from -1 to 1
     // We want to translate that to the number of ticks we should adjust our target position
     // EVERY TIME WE LOOP (about once every 30ms or so if I recall)
-    public static final int SHOULDER_TICKS_PER_JOYSTICK_PER_LOOP = 10;
+    public static final int SHOULDER_TICKS_PER_JOYSTICK_PER_LOOP = 5;
 
 
     //endregion
@@ -138,13 +138,14 @@ public class RobotMap {
     // Would recommend expressing it like 2.0 / 90.0 (2 seconds to turn 90 degrees)
     public static final double AUTON_TURN_N_DEGREES_SECONDS_PER_DEGREE = 2.5 / 90.0;
 
-    public static final double AUTON_TURN_N_DEGREES_TICKS_PER_DEGREE = 324.0/90.0;
+    public static final double AUTON_TURN_N_DEGREES_TICKS_PER_DEGREE = 648.0/87.0;
 
-    public static final double AUTON_TURN_N_DEGREES_SPEED = 0.5;
+    public static final double AUTON_TURN_N_DEGREES_SPEED = 0.75;
 
 
     // How long to drive the lift:
-    public static final double AUTON_LIFT_TIME = 4.7;
+    public static final double AUTON_LIFT_UP_TIME = 4.7;
+    public static final double AUTON_LIFT_DOWN_TIME = 4.5;
 
     //endregion
 }
