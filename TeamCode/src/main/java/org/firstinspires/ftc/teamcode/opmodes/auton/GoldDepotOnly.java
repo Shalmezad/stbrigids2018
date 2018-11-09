@@ -8,12 +8,12 @@ public class GoldDepotOnly extends BaseAutoOp {
     @Override
     protected void runAuton() {
         lowerRobot();
-        driveTrainDriveXInches(40);
-        shoulder.setTargetTicks(RobotMap.SHOULDER_POSITION_LOW);
-        waitNSeconds(.75);
+        driveTrainDriveXInches(56);
+        shoulder.setTargetTicks(RobotMap.SHOULDER_POSITION_MID);
+        waitNSeconds(1.5);
         pickupOut();
-        driveTrainDriveXInches(-12);
+        driveTrainDriveXInches(-24);
         shoulder.stop();
-
+        raiseRobot();
     }
 }

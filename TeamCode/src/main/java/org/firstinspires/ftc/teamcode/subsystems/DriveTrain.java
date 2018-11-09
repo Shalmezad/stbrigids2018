@@ -106,7 +106,7 @@ public class DriveTrain {
     }
 
     public int currentRightDistanceTicks() {
-        return leftDrive.getCurrentPosition();
+        return rightDrive.getCurrentPosition();
     }
 
     public double currentAngleDegrees() {
@@ -166,14 +166,20 @@ public class DriveTrain {
         } else if (RobotMap.AUTON_TURN_N_DEGREES_USE_ENCODERS) {
             // use the encoder distance
             //int currentTicks = currentDistanceTicks();
-            double targetTicks = RobotMap.AUTON_TURN_N_DEGREES_TICKS_PER_DEGREE * targetAngleDegrees;
+            double targetTicks;
+            if(targetAngleDegrees > 0){
+                targetTicks = RobotMap.AUTON_TURN_N_DEGREES_TICKS_PER_DEGREE_TURN_RIGHT * targetAngleDegrees;
+            }
+            else {
+                targetTicks = RobotMap.AUTON_TURN_N_DEGREES_TICKS_PER_DEGREE_TURN_LEFT * targetAngleDegrees;
+            }
             // Are we going forward or backwards?
             if (targetTicks > 0) {
                 int currentTicks = currentLeftDistanceTicks();
                 return currentTicks >= targetTicks;
             } else {
                 int currentTicks = currentRightDistanceTicks();
-                return currentTicks <= targetTicks;
+                return currentTicks >= Math.abs(targetTicks);
             }
         }
         else {

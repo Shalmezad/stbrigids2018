@@ -36,15 +36,27 @@ public abstract class BaseAutoOp extends LinearOpMode {
     public void runOpMode() throws InterruptedException {
         setupBot();
 
+        showVersion();
+
         // Maybe replace with `waitForStart();`?
         // Seems to be working.... for now
         while (!(isStarted() || isStopRequested())) {
             idle();
+            showVersion();
             telemetry.addData("Status", "Waiting in Init");
             telemetry.update();
         }
 
         runAuton();
+    }
+
+
+    public void showVersion(){
+        telemetry.addData("VERSION", getVersion());
+    }
+
+    public String getVersion(){
+        return "NO VERSION";
     }
 
     // This will be handled by the children opmodes

@@ -102,6 +102,7 @@ public class RobotMap {
     public static final int SHOULDER_POSITION_DOWN = 0;
     // For reaching into the crater.
     public static final int SHOULDER_POSITION_LOW = 103;
+    public static final int SHOULDER_POSITION_MID = 200;
     // For reaching the lander
     public static final int SHOULDER_POSITION_HIGH = 580;
     public static final int SHOULDER_POSITION_MAX = 770;
@@ -139,13 +140,15 @@ public class RobotMap {
     public static final double AUTON_TURN_N_DEGREES_SECONDS_PER_DEGREE = 2.5 / 90.0;
 
     public static final double AUTON_TURN_N_DEGREES_TICKS_PER_DEGREE = 648.0/87.0;
+    public static final double AUTON_TURN_N_DEGREES_TICKS_PER_DEGREE_TURN_LEFT = 694.0/90.0;
+    public static final double AUTON_TURN_N_DEGREES_TICKS_PER_DEGREE_TURN_RIGHT = 670.0/90.0;
 
     public static final double AUTON_TURN_N_DEGREES_SPEED = 0.75;
 
 
     // How long to drive the lift:
-    public static final double AUTON_LIFT_UP_TIME = 4.7;
-    public static final double AUTON_LIFT_DOWN_TIME = 4.5;
+    public static final double AUTON_LIFT_UP_TIME = 4.5;
+    public static final double AUTON_LIFT_DOWN_TIME = 4.1;
 
     //endregion
 }
