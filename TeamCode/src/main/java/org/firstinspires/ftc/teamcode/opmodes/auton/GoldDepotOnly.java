@@ -12,7 +12,7 @@ public class GoldDepotOnly extends BaseAutoOp {
         shoulder.setTargetTicks(RobotMap.SHOULDER_POSITION_MID);
         waitNSeconds(1.5);
         pickupOut();
-        driveTrainDriveXInches(-24);
+        driveTrainDriveXInches(-30);
         shoulder.stop();
         raiseRobot();
     }

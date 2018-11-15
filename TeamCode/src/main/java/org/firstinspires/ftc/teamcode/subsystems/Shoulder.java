@@ -90,7 +90,13 @@ public class Shoulder {
     public void setTargetTicks(int ticks){
         rightShoulderMotor.setTargetPosition(ticks);
         leftShoulderMotor.setTargetPosition(ticks);
-        rightShoulderMotor.setPower(RobotMap.MAX_SHOULDER_AUTON_SPEED);
-        leftShoulderMotor.setPower(RobotMap.MAX_SHOULDER_AUTON_SPEED);
+        if(this.getLeftShoulderPosition()>RobotMap.SHOULDER_POSITION_SLOW_DOWN){
+            rightShoulderMotor.setPower(RobotMap.MAX_SHOULDER_SLOW_SPEED);
+            leftShoulderMotor.setPower(RobotMap.MAX_SHOULDER_SLOW_SPEED);
+        } else {
+            rightShoulderMotor.setPower(RobotMap.MAX_SHOULDER_AUTON_SPEED);
+            leftShoulderMotor.setPower(RobotMap.MAX_SHOULDER_AUTON_SPEED);
+        }
+
     }
 }

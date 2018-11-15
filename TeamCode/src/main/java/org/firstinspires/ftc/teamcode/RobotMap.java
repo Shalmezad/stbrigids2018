@@ -80,6 +80,8 @@ public class RobotMap {
     // This is to help prevent going too fast on sensitive parts
 
     public static final double MAX_SHOULDER_SPEED = 0.75;
+    public static final double MAX_SHOULDER_SLOW_SPEED = 0.5;
+
     public static final double MAX_SHOULDER_AUTON_SPEED = 0.50;
 
     public static final double MAX_EXTENSION_SPEED = 1.0;
@@ -103,6 +105,7 @@ public class RobotMap {
     // For reaching into the crater.
     public static final int SHOULDER_POSITION_LOW = 103;
     public static final int SHOULDER_POSITION_MID = 200;
+    public static final int SHOULDER_POSITION_SLOW_DOWN = 300;
     // For reaching the lander
     public static final int SHOULDER_POSITION_HIGH = 580;
     public static final int SHOULDER_POSITION_MAX = 770;

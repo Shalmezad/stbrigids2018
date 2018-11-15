@@ -8,16 +8,17 @@ public class SliverCraterAndDepot extends BaseAutoOp {
 
     @Override
     public String getVersion(){
-        return "12.0";
+        return "14.0";
     }
 
     @Override
     protected void runAuton() {
+        waitNSeconds(5);
         lowerRobot();
         driveTrainDriveXInches(26.5);
         driveTrainDriveXInches(-17);
         driveTrainTurnNDegrees(-90);
-        driveTrainDriveXInches(29.5);
+        driveTrainDriveXInches(28);
         driveTrainTurnNDegrees(-60);
         driveTrainDriveXInches(40);
         shoulder.setTargetTicks(RobotMap.SHOULDER_POSITION_MID);
@@ -25,7 +26,7 @@ public class SliverCraterAndDepot extends BaseAutoOp {
         pickupOut();
         driveTrainDriveXInches(-12);
         shoulder.stop();
-        driveTrainTurnNDegrees(-5);
+        driveTrainTurnNDegrees(-3);
        // driveTrainTurnNDegrees(-45);
         //driveTrainDriveXInches(24);
         //driveTrainTurnNDegrees(-45);
