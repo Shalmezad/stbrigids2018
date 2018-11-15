@@ -105,6 +105,10 @@ public abstract class BaseAutoOp extends LinearOpMode {
         driveTrain.stop();
     }
 
+    protected void driveTrainTurnNDegreesAbsolute(double degrees){
+        // TODO: Code me
+    }
+
     /**
      * Turns N Degrees RELATIVE to the robot's current heading
      * POSITIVE IS CLOCKWISE
@@ -172,6 +176,11 @@ public abstract class BaseAutoOp extends LinearOpMode {
         }
 
         pickup.stop();
+    }
+
+    protected GoldPosition getGoldPosition(){
+        //TODO: Check webcam for this
+        return GoldPosition.GOLD_POSITION_UNKNOWN;
     }
 
     protected void lowerRobot() {
