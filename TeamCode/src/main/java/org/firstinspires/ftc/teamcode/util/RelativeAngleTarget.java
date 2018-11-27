@@ -11,18 +11,20 @@ public class RelativeAngleTarget {
         _endAngle = calculateEndAngle();
     }
 
+    /**
+     * Wraps an angle to (-180, 180]
+     * @param angle An angle that may be beyond the range (-180, 180]
+     * @return The angle wrapped to (-180, 180]
+     */
+    public static double wrapAngle(double angle){
+        // Don't reinvent the wheel:
+        // https://stackoverflow.com/a/43780476/978509
+        return angle - 360. * Math.floor((angle + 180.0) * (1.0 / 360.0));
+    }
+
     private double calculateEndAngle() {
         double angleSum = _startAngle + _turnAngle;
-        if ((angleSum >= 0 && angleSum <= 180) ||
-                (Math.abs(_turnAngle) > Math.abs(_startAngle) && _startAngle * _turnAngle < 0)) {
-            return angleSum;
-        } else {
-            if (angleSum >= 0) {
-                return angleSum - 360;
-            } else {
-                return angleSum + 360;
-            }
-        }
+        return wrapAngle(angleSum);
     }
 
     public double getEndAngle(){
@@ -30,29 +32,27 @@ public class RelativeAngleTarget {
     }
 
     public boolean isAtTarget(double currentAngle){
-
-        double angleSum = _startAngle + _turnAngle;
-
-        if ((angleSum >= 0 && angleSum <= 180) || (Math.abs(_turnAngle) > Math.abs(_startAngle) && _startAngle * _turnAngle < 0 )) {
-
-            if(_turnAngle > 0) {
-                if(_endAngle == 180){
-                    return currentAngle < 0;
-                }
-                else {
-                    return currentAngle >= _endAngle;
-                }
-            }
-            else {
-                return currentAngle <= _endAngle;
+        // Are we turning left or right?
+        if(_turnAngle > 0){
+            // We're turning LEFT (positive)
+            // Is this the overflow condition?
+            if(_turnAngle + _startAngle > 180){
+                // It's the overflow condition
+                return currentAngle < 0 && currentAngle > _endAngle;
+            } else {
+                // It's not the overflow condition
+                return currentAngle > _endAngle;
             }
         }
-        else {
-            if(_turnAngle >= 0){
-                return currentAngle < 0 && currentAngle >= _endAngle;
-            }
-            else {
+        else { //if(_turnAngle > 0){
+            // We're turning RIGHT (negative)
+            // Is this the overflow condition?
+            if(_turnAngle + _startAngle < -180){
+                // It's the overflow condition
                 return currentAngle > 0 && currentAngle <= _endAngle;
+            } else {
+                // It's not the overflow condition
+                return currentAngle < _endAngle;
             }
         }
     }

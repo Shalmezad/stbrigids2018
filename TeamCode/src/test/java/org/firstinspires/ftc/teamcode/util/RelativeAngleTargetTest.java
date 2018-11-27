@@ -5,6 +5,27 @@ import junit.framework.TestCase;
 
 public class RelativeAngleTargetTest extends TestCase {
 
+    public void testWrapAnglePositiveNoWrap(){
+        double angle = RelativeAngleTarget.wrapAngle(90.0);
+        assertEquals(90.0, angle);
+    }
+
+    public void testWrapAnglePositiveWrap(){
+        double angle = RelativeAngleTarget.wrapAngle(270.0);
+        assertEquals(-90.0, angle);
+    }
+
+    public void testWrapAngleNegativeNoWrap(){
+        double angle = RelativeAngleTarget.wrapAngle(-90.0);
+        assertEquals(-90.0, angle);
+    }
+
+    public void testWrapAngleNegativeWrap(){
+        double angle = RelativeAngleTarget.wrapAngle(-270.0);
+        assertEquals(90.0, angle);
+    }
+
+
     public void testEndAngleTurnLeftPositiveOnly() {
         RelativeAngleTarget rat = new RelativeAngleTarget(5.0, 10.0);
         assertEquals(15.0, rat.getEndAngle());
