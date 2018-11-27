@@ -25,6 +25,10 @@ public class RelativeAngleTarget {
         }
     }
 
+    public double getEndAngle(){
+        return _endAngle;
+    }
+
     public boolean isAtTarget(double currentAngle){
 
         double angleSum = _startAngle + _turnAngle;
