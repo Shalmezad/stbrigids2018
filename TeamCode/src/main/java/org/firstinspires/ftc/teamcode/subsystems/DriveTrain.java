@@ -93,15 +93,23 @@ public class DriveTrain {
     public void turnLeft(double speed) {
         speed = Math.abs(speed);
         // Left wheel goes back, right wheel goes forward
-        //setRawSpeed(-speed, speed);
-        setRawSpeed(0, speed);
+        if(RobotMap.AUTON_TURN_N_DEGREES_USE_BOTH_WHEELS) {
+            setRawSpeed(-speed, speed);
+        }
+        else {
+            setRawSpeed(0, speed);
+        }
     }
 
     public void turnRight(double speed) {
         speed = Math.abs(speed);
         // Left wheel goes forward, right wheel goes back
-        //setRawSpeed(speed, -speed);
-        setRawSpeed(speed, 0);
+        if(RobotMap.AUTON_TURN_N_DEGREES_USE_BOTH_WHEELS){
+            setRawSpeed(speed, -speed);
+        }
+        else {
+            setRawSpeed(speed, 0);
+        }
     }
 
     public int currentDistanceTicks() {

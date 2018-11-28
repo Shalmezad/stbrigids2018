@@ -138,6 +138,8 @@ public class RobotMap {
 
     public static final boolean AUTON_TURN_N_DEGREES_USE_ENCODERS = true;
 
+    public static final boolean AUTON_TURN_N_DEGREES_USE_BOTH_WHEELS = true;
+
     // How long to turn 1 degree.
     // Would recommend expressing it like 2.0 / 90.0 (2 seconds to turn 90 degrees)
     public static final double AUTON_TURN_N_DEGREES_SECONDS_PER_DEGREE = 2.5 / 90.0;
