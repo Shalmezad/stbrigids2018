@@ -164,7 +164,8 @@ public class DriveTrain {
         rightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         startDegrees = currentAngleDegrees();
         if(RobotMap.AUTON_TURN_N_DEGREES_USE_IMU){
-            relativeAngleTarget = new RelativeAngleTarget(currentAngleDegrees(), degrees);
+            // Need to use negative degrees.
+            relativeAngleTarget = new RelativeAngleTarget(currentAngleDegrees(), -degrees);
         }
     }
 
