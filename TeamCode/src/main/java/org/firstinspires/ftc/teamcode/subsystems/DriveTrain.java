@@ -11,6 +11,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 import org.firstinspires.ftc.teamcode.RobotMap;
 import org.firstinspires.ftc.teamcode.util.Constants;
+import org.firstinspires.ftc.teamcode.util.RelativeAngleTarget;
 
 public class DriveTrain {
 
@@ -25,6 +26,7 @@ public class DriveTrain {
     // Where we started
     private double startDegrees = 0;
     private ElapsedTime runtime = new ElapsedTime();
+    private RelativeAngleTarget relativeAngleTarget;
 
     public DriveTrain(HardwareMap hardwareMap) {
         leftDrive = hardwareMap.get(DcMotor.class, RobotMap.HW_NAME_LEFT_DRIVE_TRAIN_MOTOR);
@@ -43,6 +45,11 @@ public class DriveTrain {
         leftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         rightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
+        initializeIMU(hardwareMap);
+
+    }
+
+    private void initializeIMU(HardwareMap hardwareMap) {
         if (RobotMap.AUTON_TURN_N_DEGREES_USE_IMU) {
             BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
 
@@ -156,13 +163,15 @@ public class DriveTrain {
         leftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         rightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         startDegrees = currentAngleDegrees();
+        if(RobotMap.AUTON_TURN_N_DEGREES_USE_IMU){
+            relativeAngleTarget = new RelativeAngleTarget(currentAngleDegrees(), degrees);
+        }
     }
 
     public boolean isAtTargetAngle() {
         // Look at config, see if we're running by IMU or time
         if (RobotMap.AUTON_TURN_N_DEGREES_USE_IMU) {
-            // TODO: Code me
-            return true;
+            return relativeAngleTarget.isAtTarget(currentAngleDegrees());
         } else if (RobotMap.AUTON_TURN_N_DEGREES_USE_ENCODERS) {
             // use the encoder distance
             //int currentTicks = currentDistanceTicks();
