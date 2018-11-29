@@ -134,11 +134,11 @@ public class RobotMap {
     public static final double AUTON_DRIVE_X_INCHES_TICKS_PER_FOOT = 300;
 
     // Whether or not to use the IMU (the built in sensor on the rev module). If not, it'll use time
-    public static final boolean AUTON_TURN_N_DEGREES_USE_IMU = false;
+    public static final boolean AUTON_TURN_N_DEGREES_USE_IMU = true;
 
     public static final boolean AUTON_TURN_N_DEGREES_USE_ENCODERS = true;
 
-    public static final boolean AUTON_TURN_N_DEGREES_USE_BOTH_WHEELS = true;
+    public static final boolean AUTON_TURN_N_DEGREES_USE_BOTH_WHEELS = false;
 
     // How long to turn 1 degree.
     // Would recommend expressing it like 2.0 / 90.0 (2 seconds to turn 90 degrees)

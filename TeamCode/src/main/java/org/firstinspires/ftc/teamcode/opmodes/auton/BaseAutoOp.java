@@ -142,6 +142,12 @@ public abstract class BaseAutoOp extends LinearOpMode {
 
     }
 
+    //Resets robot angle to zero
+    protected void zeroRobotTurn(){
+        double current = driveTrain.currentAngleDegrees();
+        driveTrainTurnNDegrees(current);
+    }
+
     protected void shoulderRaise() {
         // Short circuit if we aren't using the shoulder:
         if (RobotMap.DISABLE_SHOULDER) {
@@ -180,12 +186,13 @@ public abstract class BaseAutoOp extends LinearOpMode {
 
     protected GoldPosition getGoldPosition(){
         //TODO: Check webcam for this
-        return GoldPosition.GOLD_POSITION_UNKNOWN;
+        return GoldPosition.GOLD_POSITION_LEFT;
     }
 
     protected void lowerRobot() {
         liftUp();
-
+        driveTrainDriveXInches(4.5);
+        zeroRobotTurn();
     }
 
     protected void liftDown() {

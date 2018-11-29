@@ -12,6 +12,13 @@ public class GoldCraterAndDepot extends BaseAutoOp {
 
         GoldPosition goldPosition = getGoldPosition();
 
+        positionSpecific(goldPosition);
+
+
+        raiseRobot();
+    }
+
+    protected void positionSpecific(GoldPosition goldPosition) {
         if(goldPosition == GoldPosition.GOLD_POSITION_LEFT){
             driveTrainDriveXInches(11.2);
             driveTrainTurnNDegrees(-50);
@@ -47,22 +54,20 @@ public class GoldCraterAndDepot extends BaseAutoOp {
             driveTrainDriveXInches(43.8);
         }
         else { //this is for gold center or unknown
-            driveTrainDriveXInches(10.3);
-            driveTrainTurnNDegrees(-13);
-            driveTrainDriveXInches(52.2);
+
+            driveTrainDriveXInches(43.75);
             shoulder.setTargetTicks(RobotMap.SHOULDER_POSITION_MID);
             waitNSeconds(1.5);
             pickupOut();
-            driveTrainDriveXInches(-9);
+            driveTrainDriveXInches(-42.25);
             shoulder.stop();
-            driveTrainTurnNDegrees(-71);
-            driveTrainDriveXInches(6.1);
-            driveTrainTurnNDegrees(-51);
-            driveTrainTurnNDegrees(48.2);
+            driveTrainTurnNDegrees(-51.1);
+            driveTrainDriveXInches(21);
+            driveTrainTurnNDegrees(-60);
+            driveTrainDriveXInches(23);
+
+
 
         }
-
-
-       raiseRobot();
     }
 }

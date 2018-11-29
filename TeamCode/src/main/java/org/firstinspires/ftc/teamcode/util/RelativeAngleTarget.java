@@ -31,17 +31,22 @@ public class RelativeAngleTarget {
         return _endAngle;
     }
 
+
     public boolean isAtTarget(double currentAngle){
+        return isAtTarget(currentAngle, 2);
+    }
+
+    public boolean isAtTarget(double currentAngle, double errorTolerance){
         // Are we turning left or right?
         if(_turnAngle > 0){
             // We're turning LEFT (positive)
             // Is this the overflow condition?
             if(_turnAngle + _startAngle > 180){
                 // It's the overflow condition
-                return currentAngle < 0 && currentAngle > _endAngle;
+                return currentAngle < 0 && currentAngle > _endAngle - errorTolerance;
             } else {
                 // It's not the overflow condition
-                return currentAngle > _endAngle;
+                return currentAngle > _endAngle - errorTolerance;
             }
         }
         else { //if(_turnAngle > 0){
@@ -49,10 +54,10 @@ public class RelativeAngleTarget {
             // Is this the overflow condition?
             if(_turnAngle + _startAngle < -180){
                 // It's the overflow condition
-                return currentAngle > 0 && currentAngle <= _endAngle;
+                return currentAngle > 0 && currentAngle <= _endAngle + errorTolerance;
             } else {
                 // It's not the overflow condition
-                return currentAngle < _endAngle;
+                return currentAngle < _endAngle + errorTolerance;
             }
         }
     }
