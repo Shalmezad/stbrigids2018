@@ -155,5 +155,7 @@ public class RobotMap {
     public static final double AUTON_LIFT_UP_TIME = 4.5;
     public static final double AUTON_LIFT_DOWN_TIME = 4.1;
 
+    public static final boolean AUTON_USE_WEBCAM = false;
+
     //endregion
 }

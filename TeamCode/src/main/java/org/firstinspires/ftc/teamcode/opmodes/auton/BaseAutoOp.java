@@ -12,6 +12,7 @@ public abstract class BaseAutoOp extends LinearOpMode {
     protected Extension extension;
     protected Pickup pickup;
     protected RobotLift robotLift;
+    protected WebcamSystem webcamSystem;
     private ElapsedTime timeout = new ElapsedTime();
 
     private void setupBot() {
@@ -30,6 +31,9 @@ public abstract class BaseAutoOp extends LinearOpMode {
         if (!RobotMap.DISABLE_LIFT) {
             robotLift = new RobotLift(hardwareMap);
         }
+        if (RobotMap.AUTON_USE_WEBCAM){
+            webcamSystem = new WebcamSystem(hardwareMap);
+        }
     }
 
     @Override
@@ -47,7 +51,13 @@ public abstract class BaseAutoOp extends LinearOpMode {
             telemetry.update();
         }
 
+        if (RobotMap.AUTON_USE_WEBCAM){
+            webcamSystem.startTracking();
+        }
         runAuton();
+        if (RobotMap.AUTON_USE_WEBCAM){
+            webcamSystem.stopTracking();
+        }
     }
 
 
@@ -185,8 +195,12 @@ public abstract class BaseAutoOp extends LinearOpMode {
     }
 
     protected GoldPosition getGoldPosition(){
-        //TODO: Check webcam for this
-        return GoldPosition.GOLD_POSITION_LEFT;
+        if(RobotMap.AUTON_USE_WEBCAM){
+            return webcamSystem.getGoldPosition();
+        }
+        else {
+            return GoldPosition.GOLD_POSITION_UNKNOWN;
+        }
     }
 
     protected void lowerRobot() {
@@ -230,6 +244,9 @@ public abstract class BaseAutoOp extends LinearOpMode {
 
         while (opModeIsActive() &&
                 (timeout.seconds() < timeoutTime)) {
+            if(RobotMap.AUTON_USE_WEBCAM){
+                webcamSystem.checkPosition();
+            }
             robotLift.up();
         }
         //comment this out for competition...for testing only so

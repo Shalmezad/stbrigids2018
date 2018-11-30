@@ -46,7 +46,7 @@ public class WebcamSystem {
             tfod.shutdown();
     }
 
-    public GoldPosition getGoldPosition(){
+    public void checkPosition(){
         if (tfod != null) {
             float maxConfidence = 0;
             Recognition bestRecognition = null;
@@ -75,6 +75,10 @@ public class WebcamSystem {
                 }
             }
         }
+    }
+
+    public GoldPosition getGoldPosition(){
+
         return goldPosition;
     }
 
