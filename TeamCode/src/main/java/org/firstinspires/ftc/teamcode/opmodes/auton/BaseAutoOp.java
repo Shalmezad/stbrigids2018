@@ -196,7 +196,21 @@ public abstract class BaseAutoOp extends LinearOpMode {
 
     protected GoldPosition getGoldPosition(){
         if(RobotMap.AUTON_USE_WEBCAM){
-            return webcamSystem.getGoldPosition();
+            GoldPosition goldPosition = webcamSystem.getGoldPosition();
+            if(goldPosition == GoldPosition.GOLD_POSITION_LEFT){
+                telemetry.addData("Gold Mineral Position", "Left");
+            }
+            if(goldPosition == GoldPosition.GOLD_POSITION_CENTER){
+                telemetry.addData("Gold Mineral Position", "Center");
+            }
+            if(goldPosition == GoldPosition.GOLD_POSITION_RIGHT){
+                telemetry.addData("Gold Mineral Position", "Right");
+            }
+            if(goldPosition == GoldPosition.GOLD_POSITION_UNKNOWN){
+                telemetry.addData("Gold Mineral Position", "Unknown");
+            }
+            telemetry.update();
+            return goldPosition;
         }
         else {
             return GoldPosition.GOLD_POSITION_UNKNOWN;
