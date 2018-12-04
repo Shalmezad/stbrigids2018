@@ -21,32 +21,30 @@ public class GoldCraterAndDepot extends BaseAutoOp {
     protected void positionSpecific(GoldPosition goldPosition) {
         if(goldPosition == GoldPosition.GOLD_POSITION_LEFT){
 
-            driveTrainTurnNDegrees(-36.4);
+            driveTrainTurnNDegrees(-32);
             driveTrainDriveXInches(26.6);
-            driveTrainTurnNDegrees(69.2);
-            driveTrainDriveXInches(22.5);
-            driveTrainDriveXInches(20);
+            driveTrainTurnNDegrees(66);
+            driveTrainDriveXInches(18);
             shoulder.setTargetTicks(RobotMap.SHOULDER_POSITION_MID);
-            waitNSeconds(1.5);
+            waitNSeconds(1.1);
             pickupOut();
             driveTrainDriveXInches(-11.5);
             shoulder.stop();
-            driveTrainTurnNDegrees(18.8);
+            driveTrainTurnNDegrees(4);
             driveTrainDriveXInches(-60.9);
         }
         else if(goldPosition == GoldPosition.GOLD_POSITION_RIGHT){
-            driveTrainTurnNDegrees(29.9);
-            driveTrainDriveXInches(32.4);
+            driveTrainTurnNDegrees(27);
+            driveTrainDriveXInches(31);
             driveTrainTurnNDegrees(-67.8);
-            driveTrainDriveXInches(20);
-            driveTrainDriveXInches(20);
+            driveTrainDriveXInches(19);
             shoulder.setTargetTicks(RobotMap.SHOULDER_POSITION_MID);
-            waitNSeconds(1.5);
+            waitNSeconds(1.1);
             pickupOut();
-            driveTrainDriveXInches(-8.1);
+            driveTrainDriveXInches(-11.1);
             shoulder.stop();
-            driveTrainTurnNDegrees(-72.3);
-            driveTrainDriveXInches(8.8);
+            driveTrainTurnNDegrees(-70.0);
+            driveTrainDriveXInches(9.3);
             driveTrainTurnNDegrees(-9.7);
             driveTrainDriveXInches(8.8);
             driveTrainTurnNDegrees(-11.7);
@@ -58,9 +56,9 @@ public class GoldCraterAndDepot extends BaseAutoOp {
 
             driveTrainDriveXInches(43.75);
             shoulder.setTargetTicks(RobotMap.SHOULDER_POSITION_MID);
-            waitNSeconds(1.5);
+            waitNSeconds(1.1);
             pickupOut();
-            driveTrainDriveXInches(-42.25);
+            driveTrainDriveXInches(-43.75);
             shoulder.stop();
             driveTrainTurnNDegrees(-51.1);
             driveTrainDriveXInches(21);
