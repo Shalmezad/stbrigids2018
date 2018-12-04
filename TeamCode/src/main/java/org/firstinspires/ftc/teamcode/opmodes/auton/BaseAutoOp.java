@@ -119,6 +119,31 @@ public abstract class BaseAutoOp extends LinearOpMode {
         // TODO: Code me
     }
 
+    protected void driveTrainTurnNDegreesSpecial(double degrees){
+        // Short circuit if we aren't using the drive train:
+        if (RobotMap.DISABLE_DRIVE_TRAIN) {
+            return;
+        }
+
+        driveTrain.setAngleTargetDegreesRelative(degrees);
+        timeout.reset();
+
+        // TODO: Move magic numbers to RobotMap
+        double timeoutTime = Math.abs(degrees) * 4.0 / 90.0; // Should take about 2 seconds per 90 degrees tops
+
+        while (opModeIsActive() &&
+                !driveTrain.isAtTargetAngle() &&
+                (timeout.seconds() < timeoutTime)) {
+            if (degrees > 0) {
+                driveTrain.turnRightSpecial(RobotMap.AUTON_TURN_N_DEGREES_SPEED);
+            } else {
+                driveTrain.turnLeftSpecial(RobotMap.AUTON_TURN_N_DEGREES_SPEED);
+            }
+        }
+
+        driveTrain.stop();
+    }
+
     /**
      * Turns N Degrees RELATIVE to the robot's current heading
      * POSITIVE IS CLOCKWISE

@@ -112,6 +112,28 @@ public class DriveTrain {
         }
     }
 
+    public void turnLeftSpecial(double speed) {
+        speed = Math.abs(speed);
+        // Left wheel goes back, right wheel goes forward
+        if(RobotMap.AUTON_TURN_N_DEGREES_USE_BOTH_WHEELS) {
+            setRawSpeed(-speed, speed);
+        }
+        else {
+            setRawSpeed(-speed, 0);
+        }
+    }
+
+    public void turnRightSpecial(double speed) {
+        speed = Math.abs(speed);
+        // Left wheel goes forward, right wheel goes back
+        if(RobotMap.AUTON_TURN_N_DEGREES_USE_BOTH_WHEELS){
+            setRawSpeed(speed, -speed);
+        }
+        else {
+            setRawSpeed(0, -speed);
+        }
+    }
+
     public int currentDistanceTicks() {
         return leftDrive.getCurrentPosition();
     }

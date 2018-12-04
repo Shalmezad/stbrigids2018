@@ -66,6 +66,7 @@ public class TestWebcamNew extends LinearOpMode {
             webcamSystem.startTracking();
 
             while (opModeIsActive()) {
+                webcamSystem.checkPosition();
                 GoldPosition goldPosition = webcamSystem.getGoldPosition();
                 if(goldPosition == GoldPosition.GOLD_POSITION_LEFT){
                     telemetry.addData("Gold Mineral Position", "Left");

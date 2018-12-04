@@ -51,27 +51,27 @@ public class WebcamSystem {
             float maxConfidence = 0;
             Recognition bestRecognition = null;
             List<Recognition> updatedRecognitions = tfod.getUpdatedRecognitions();
-            if (updatedRecognitions != null) {
+            if (updatedRecognitions != null && updatedRecognitions.size() > 0) {
                 for (Recognition recognition : updatedRecognitions) {
                     if (recognition.getLabel().equals(LABEL_GOLD_MINERAL)) {
                         float confidence = recognition.getConfidence();
-                        if(maxConfidence == 0 || confidence > maxConfidence){
+                        if(maxConfidence == 0 || bestRecognition == null || confidence > maxConfidence){
                             maxConfidence = confidence;
                             bestRecognition = recognition;
                         }
                     }
                 }
-                // We have our best recognition.
-                double recognitionCenter = bestRecognition.getLeft() + bestRecognition.getWidth()/2;
-                double percWidth = recognitionCenter / bestRecognition.getImageWidth();
-                if(percWidth < 0.40){
-                    goldPosition = GoldPosition.GOLD_POSITION_LEFT;
-                }
-                else if(percWidth > 0.6){
-                    goldPosition = GoldPosition.GOLD_POSITION_RIGHT;
-                }
-                else{
-                    goldPosition = GoldPosition.GOLD_POSITION_CENTER;
+                if(bestRecognition != null) {
+                    // We have our best recognition.
+                    double recognitionCenter = bestRecognition.getLeft() + bestRecognition.getWidth() / 2;
+                    double percWidth = recognitionCenter / bestRecognition.getImageWidth();
+                    if (percWidth < 0.40) {
+                        goldPosition = GoldPosition.GOLD_POSITION_LEFT;
+                    } else if (percWidth > 0.6) {
+                        goldPosition = GoldPosition.GOLD_POSITION_RIGHT;
+                    } else {
+                        goldPosition = GoldPosition.GOLD_POSITION_CENTER;
+                    }
                 }
             }
         }
