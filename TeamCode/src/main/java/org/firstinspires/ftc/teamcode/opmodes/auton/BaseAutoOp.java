@@ -89,6 +89,9 @@ public abstract class BaseAutoOp extends LinearOpMode {
     }
 
     protected void driveTrainDriveXInches(double inches) {
+        driveTrainDriveXInches(inches, RobotMap.AUTON_DRIVE_X_INCHES_SPEED);
+    }
+    protected void driveTrainDriveXInches(double inches, double speed) {
         // Short circuit if we aren't using the drive train:
         if (RobotMap.DISABLE_DRIVE_TRAIN) {
             return;
@@ -106,9 +109,9 @@ public abstract class BaseAutoOp extends LinearOpMode {
                 !driveTrain.isAtTargetDistance() &&
                 (timeout.seconds() < timeoutTime)) {
             if (inches > 0) {
-                driveTrain.forward(RobotMap.AUTON_DRIVE_X_INCHES_SPEED);
+                driveTrain.forward(speed);
             } else {
-                driveTrain.backward(RobotMap.AUTON_DRIVE_X_INCHES_SPEED);
+                driveTrain.backward(speed);
             }
         }
 
@@ -287,6 +290,8 @@ public abstract class BaseAutoOp extends LinearOpMode {
 
         while (opModeIsActive() &&
                 (timeout.seconds() < timeoutTime)) {
+            //if(RobotMap.AUTON_USE_WEBCAM && timeout.seconds() < 0.5){
+            //}
             if(RobotMap.AUTON_USE_WEBCAM){
                 webcamSystem.checkPosition();
                 printGoldPosition(getGoldPosition());

@@ -156,6 +156,7 @@ public class RobotMap {
     public static final double AUTON_LIFT_DOWN_TIME = 4.1;
 
     public static final boolean AUTON_USE_WEBCAM = true;
+    public static final boolean AUTON_AVERAGE_WEBCAM_SIGHTINGS = true;
 
     //endregion
 }

@@ -10,7 +10,9 @@ import org.firstinspires.ftc.teamcode.RobotMap;
 import org.firstinspires.ftc.teamcode.opmodes.auton.GoldPosition;
 import org.firstinspires.ftc.teamcode.util.Constants;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
 public class WebcamSystem {
     private static final String TFOD_MODEL_ASSET = "RoverRuckus.tflite";
@@ -21,6 +23,8 @@ public class WebcamSystem {
     private VuforiaLocalizer vuforia;
     private TFObjectDetector tfod;
     private GoldPosition goldPosition;
+
+    private HashMap<GoldPosition, Integer> timesSeen;
 
     private boolean canUseWebcam;
 
@@ -34,6 +38,7 @@ public class WebcamSystem {
         } else {
             canUseWebcam = false;
         }
+        timesSeen = new HashMap<>();
     }
 
     public void startTracking(){
@@ -72,13 +77,35 @@ public class WebcamSystem {
                     } else {
                         goldPosition = GoldPosition.GOLD_POSITION_CENTER;
                     }
+                    if(!timesSeen.containsKey(goldPosition)){
+                        timesSeen.put(goldPosition, 0);
+                    }
+                    int prevTimeSeen = timesSeen.get(goldPosition);
+                    timesSeen.put(goldPosition, prevTimeSeen + 1);
                 }
             }
         }
     }
 
     public GoldPosition getGoldPosition(){
-
+        if(RobotMap.AUTON_AVERAGE_WEBCAM_SIGHTINGS){
+            // Add up all the times seen:
+            Set<GoldPosition> keys = timesSeen.keySet();
+            int totalSightings = 0;
+            for(GoldPosition key : keys){
+                totalSightings += timesSeen.get(key);
+            }
+            double maxSightPerc = 0.0;
+            GoldPosition maxPosition = GoldPosition.GOLD_POSITION_UNKNOWN;
+            for(GoldPosition key : keys){
+                double perc = timesSeen.get(key) / ((double)totalSightings);
+                if(perc > maxSightPerc){
+                    maxSightPerc = perc;
+                    maxPosition = key;
+                }
+            }
+            return maxPosition;
+        }
         return goldPosition;
     }
 
