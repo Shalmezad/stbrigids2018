@@ -36,17 +36,17 @@ public class SilverCraterAndDepot extends BaseAutoOp {
             driveTrainDriveXInches(-5.6);
             shoulder.stop();
             driveTrainTurnNDegrees(-3);
-            driveTrainDriveXInches(-58.7,1.0);
+            driveTrainDriveXInches(-60,1.0);
 
         }
         else if(goldPosition == GoldPosition.GOLD_POSITION_RIGHT){
             driveTrainDriveXInches(1.9);
-            driveTrainTurnNDegrees(38);
+            driveTrainTurnNDegrees(36);
             driveTrainDriveXInches(14);
             driveTrainDriveXInches(-14);
-            driveTrainTurnNDegreesSpecial(-38);
-            driveTrainTurnNDegrees(-56.2);
-            driveTrainDriveXInches(24.5);
+            driveTrainTurnNDegreesSpecial(-36);
+            driveTrainTurnNDegrees(-64);
+            driveTrainDriveXInches(22.0);
             driveTrainTurnNDegrees(-65.7);
             driveTrainDriveXInches(12.1);
             driveTrainTurnNDegrees(-5.4);
@@ -57,7 +57,7 @@ public class SilverCraterAndDepot extends BaseAutoOp {
             driveTrainDriveXInches(-5.6);
             shoulder.stop();
             driveTrainTurnNDegrees(-3);
-            driveTrainDriveXInches(-58.7,1.0);
+            driveTrainDriveXInches(-60,1.0);
         }
         else { //this is for gold center or unknown
 
@@ -75,7 +75,7 @@ public class SilverCraterAndDepot extends BaseAutoOp {
             driveTrainDriveXInches(-5.6);
             shoulder.stop();
             driveTrainTurnNDegrees(-4);
-            driveTrainDriveXInches(-58.7, 1.0);
+            driveTrainDriveXInches(-60, 1.0);
 
 
 

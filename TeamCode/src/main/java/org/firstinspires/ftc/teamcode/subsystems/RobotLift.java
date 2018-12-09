@@ -43,6 +43,6 @@ public class RobotLift {
     }
 
     public void stop(){
-        setRawSpeed(0);
+        setRawSpeed(0.0);
     }
 }
