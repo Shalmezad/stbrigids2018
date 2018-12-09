@@ -61,20 +61,19 @@ public class SilverCraterAndDepot extends BaseAutoOp {
         }
         else { //this is for gold center or unknown
 
-           driveTrainDriveXInches(20.4);
-           driveTrainDriveXInches(-18.8);
+           driveTrainDriveXInches(23.9);
+           driveTrainDriveXInches(-22.3);
            driveTrainTurnNDegrees(-57.2);
            driveTrainDriveXInches(23.5);
            driveTrainTurnNDegrees(-65.7);
            driveTrainDriveXInches(12.1);
-           driveTrainTurnNDegrees(-5.4);
+           driveTrainTurnNDegrees(-7.4);
            driveTrainDriveXInches(28.8);
             shoulder.setTargetTicks(RobotMap.SHOULDER_POSITION_MID);
             waitNSeconds(1.1);
             pickupOut();
             driveTrainDriveXInches(-5.6);
             shoulder.stop();
-            driveTrainTurnNDegrees(-4);
             driveTrainDriveXInches(-60, 1.0);
 
 

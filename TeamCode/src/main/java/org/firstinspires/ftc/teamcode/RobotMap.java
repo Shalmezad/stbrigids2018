@@ -88,7 +88,8 @@ public class RobotMap {
 
     public static final double MAX_PICKUP_SPEED = 0.8;
 
-    public static final double MAX_LIFT_SPEED = 0.8;
+    public static final double MAX_LIFT_SPEED_TELE = 1.0;
+    public static final double MAX_LIFT_SPEED_AUTO = 0.8;
 
     //endregion
 

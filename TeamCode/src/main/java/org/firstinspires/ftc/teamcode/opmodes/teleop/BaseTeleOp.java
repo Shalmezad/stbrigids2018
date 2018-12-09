@@ -124,9 +124,9 @@ public abstract class BaseTeleOp extends OpMode {
         double liftSpeed = 0;
 
         if (gamepad2.dpad_up) {
-            liftSpeed = RobotMap.MAX_LIFT_SPEED;
+            liftSpeed = RobotMap.MAX_LIFT_SPEED_TELE;
         } else if (gamepad2.dpad_down) {
-            liftSpeed = -RobotMap.MAX_LIFT_SPEED;
+            liftSpeed = -RobotMap.MAX_LIFT_SPEED_TELE;
         }
 
         robotLift.setRawSpeed(liftSpeed);

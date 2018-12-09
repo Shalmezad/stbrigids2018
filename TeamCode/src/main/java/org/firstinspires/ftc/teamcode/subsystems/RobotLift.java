@@ -35,11 +35,11 @@ public class RobotLift {
     }
 
     public void up(){
-        setRawSpeed(RobotMap.MAX_LIFT_SPEED);
+        setRawSpeed(RobotMap.MAX_LIFT_SPEED_AUTO);
     }
 
     public void down(){
-        setRawSpeed(-RobotMap.MAX_LIFT_SPEED);
+        setRawSpeed(-RobotMap.MAX_LIFT_SPEED_AUTO);
     }
 
     public void stop(){
