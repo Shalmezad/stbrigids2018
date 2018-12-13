@@ -47,7 +47,7 @@ public class GoldCraterAndDepot extends BaseAutoOp {
             driveTrainDriveXInches(9.3);
             driveTrainTurnNDegrees(-9.7);
             driveTrainDriveXInches(7.8);
-            driveTrainTurnNDegrees(-14.7);
+            driveTrainTurnNDegrees(-11);
             driveTrainDriveXInches(38.7,1.0);
 
         }
@@ -63,7 +63,7 @@ public class GoldCraterAndDepot extends BaseAutoOp {
             driveTrainTurnNDegrees(-51.1);
             driveTrainDriveXInches(21);
             driveTrainTurnNDegrees(-60);
-            driveTrainDriveXInches(23);
+            driveTrainDriveXInches(22);
 
 
         }

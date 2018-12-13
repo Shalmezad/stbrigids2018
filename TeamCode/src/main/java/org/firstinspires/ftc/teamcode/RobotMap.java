@@ -87,6 +87,7 @@ public class RobotMap {
     public static final double MAX_EXTENSION_SPEED = 1.0;
 
     public static final double MAX_PICKUP_SPEED = 0.8;
+    public static final double MAX_PICKUP_SPEED_OUT = 0.5;
 
     public static final double MAX_LIFT_SPEED_TELE = 1.0;
     public static final double MAX_LIFT_SPEED_AUTO = 0.8;

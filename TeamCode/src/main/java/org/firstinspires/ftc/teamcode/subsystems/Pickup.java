@@ -35,7 +35,7 @@ public class Pickup {
     }
 
     public void out(){
-        setRawSpeed(-RobotMap.MAX_PICKUP_SPEED);
+        setRawSpeed(-RobotMap.MAX_PICKUP_SPEED_OUT);
     }
 
     public void stop(){

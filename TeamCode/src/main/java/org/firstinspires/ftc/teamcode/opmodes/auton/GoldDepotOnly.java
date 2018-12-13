@@ -1,9 +1,12 @@
 package org.firstinspires.ftc.teamcode.opmodes.auton;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
+
 import org.firstinspires.ftc.teamcode.RobotMap;
 
 @Autonomous(name = "GoldDepotOnly", group = "Auton")
+@Disabled
 public class GoldDepotOnly extends BaseAutoOp {
     @Override
     protected void runAuton() {
