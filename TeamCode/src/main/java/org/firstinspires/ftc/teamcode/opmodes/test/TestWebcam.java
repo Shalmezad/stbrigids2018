@@ -53,6 +53,7 @@ import java.util.List;
  * is explained below.
  */
 @TeleOp(name = "Test - Webcam Test", group = "TEST")
+@Disabled
 public class TestWebcam extends LinearOpMode {
     private static final String TFOD_MODEL_ASSET = "RoverRuckus.tflite";
     private static final String LABEL_GOLD_MINERAL = "Gold Mineral";

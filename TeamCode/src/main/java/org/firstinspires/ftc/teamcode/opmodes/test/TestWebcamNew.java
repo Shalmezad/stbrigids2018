@@ -29,6 +29,7 @@
 
 package org.firstinspires.ftc.teamcode.opmodes.test;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.robotcore.external.ClassFactory;
@@ -54,6 +55,7 @@ import java.util.List;
  * is explained below.
  */
 @TeleOp(name = "Test - Webcam Test NEW", group = "TEST")
+@Disabled
 public class TestWebcamNew extends LinearOpMode {
     private WebcamSystem webcamSystem;
 

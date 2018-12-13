@@ -1,11 +1,14 @@
 package org.firstinspires.ftc.teamcode.opmodes.test;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
+
 import org.firstinspires.ftc.teamcode.RobotMap;
 import org.firstinspires.ftc.teamcode.opmodes.auton.BaseAutoOp;
 import org.firstinspires.ftc.teamcode.util.Constants;
 
 @Autonomous(name = "Test - Shoulder Test", group = "TEST")
+@Disabled
 public class TestShoulder extends BaseAutoOp {
 
     @Override
