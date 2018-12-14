@@ -21,17 +21,17 @@ public class GoldCraterAndDepot extends BaseAutoOp {
     protected void positionSpecific(GoldPosition goldPosition) {
         if(goldPosition == GoldPosition.GOLD_POSITION_LEFT){
 
-            driveTrainTurnNDegrees(-32);
+            driveTrainTurnNDegrees(-25);
             driveTrainDriveXInches(26.6);
-            driveTrainTurnNDegrees(66);
-            driveTrainDriveXInches(17);
+            driveTrainTurnNDegrees(60);
+            driveTrainDriveXInches(15);
             shoulder.setTargetTicks(RobotMap.SHOULDER_POSITION_MID);
             waitNSeconds(1.1);
             pickupOut();
             driveTrainDriveXInches(-11.5);
             shoulder.stop();
-            driveTrainTurnNDegrees(12);
-            driveTrainDriveXInches(-63.5,1.0);
+            driveTrainTurnNDegrees(14);
+            driveTrainDriveXInches(-64.5,1.0);
         }
         else if(goldPosition == GoldPosition.GOLD_POSITION_RIGHT){
             driveTrainTurnNDegrees(27);

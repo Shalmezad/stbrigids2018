@@ -25,7 +25,7 @@ public class SilverCraterAndDepot extends BaseAutoOp {
             driveTrainDriveXInches(6.7);
             driveTrainTurnNDegrees(38.6);
             driveTrainTurnNDegreesSpecial(-38.6);
-            driveTrainDriveXInches(16.8);
+            driveTrainDriveXInches(16.2);
             driveTrainTurnNDegrees(-64);
             driveTrainDriveXInches(12.1);
             driveTrainTurnNDegrees(-6.4);
@@ -36,7 +36,7 @@ public class SilverCraterAndDepot extends BaseAutoOp {
             driveTrainDriveXInches(-8.6);
             shoulder.stop();
             //driveTrainTurnNDegrees(-4);
-            driveTrainDriveXInches(-57,1.0);
+            driveTrainDriveXInches(-58.5,1.0);
 
         }
         else if(goldPosition == GoldPosition.GOLD_POSITION_RIGHT){
@@ -47,17 +47,17 @@ public class SilverCraterAndDepot extends BaseAutoOp {
             driveTrainTurnNDegreesSpecial(-36);
             driveTrainTurnNDegrees(-64);
             driveTrainDriveXInches(22.0);
-            driveTrainTurnNDegrees(-67.7);
+            driveTrainTurnNDegrees(-63.7);
             driveTrainDriveXInches(11.1);
-            driveTrainTurnNDegrees(-5.4);
+            driveTrainTurnNDegrees(-6.7);
             driveTrainDriveXInches(29.8);
             shoulder.setTargetTicks(RobotMap.SHOULDER_POSITION_MID);
             waitNSeconds(1.1);
             pickupOut();
             driveTrainDriveXInches(-7.6);
             shoulder.stop();
-            driveTrainTurnNDegrees(-3);
-            driveTrainDriveXInches(-60.5,1.0);
+            driveTrainTurnNDegrees(-4.5);
+            driveTrainDriveXInches(-62.5,1.0);
         }
         else { //this is for gold center or unknown
 
@@ -75,7 +75,7 @@ public class SilverCraterAndDepot extends BaseAutoOp {
             driveTrainDriveXInches(-8.6);
             shoulder.stop();
             driveTrainTurnNDegrees(-4);
-            driveTrainDriveXInches(-57, 1.0);
+            driveTrainDriveXInches(-59, 1.0);
 
 
 
