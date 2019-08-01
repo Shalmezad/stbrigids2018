@@ -55,7 +55,7 @@ import java.util.List;
  * is explained below.
  */
 @TeleOp(name = "Test - Webcam Test NEW", group = "TEST")
-@Disabled
+//@Disabled
 public class TestWebcamNew extends LinearOpMode {
     private WebcamSystem webcamSystem;
 

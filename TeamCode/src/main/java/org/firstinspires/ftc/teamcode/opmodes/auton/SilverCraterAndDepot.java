@@ -8,6 +8,7 @@ import org.firstinspires.ftc.teamcode.RobotMap;
 public class SilverCraterAndDepot extends BaseAutoOp {
     @Override
     protected void runAuton() {
+
         lowerRobot();
 
         GoldPosition goldPosition = getGoldPosition();
